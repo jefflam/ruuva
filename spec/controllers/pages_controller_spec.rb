@@ -1,11 +1,17 @@
 require 'spec_helper'
 
 describe PagesController do
+render_views
 
   describe "GET 'home'" do
     it "should be successful" do
       get 'home'
       response.should be_success
+    end
+
+    it "should have the right title" do
+      get 'home'
+      response.should have_selector("title", :content => "Simplifying and socializing online shopping - Ruuva")
     end
   end
 
@@ -14,6 +20,47 @@ describe PagesController do
       get 'contact'
       response.should be_success
     end
+
+     it "should have the right title" do
+      get 'contact'
+      response.should have_selector("title", :content => "Contact Us")
+    end   
   end
+
+  describe "GET 'about'" do
+    it "should be successful" do
+      get 'about'
+      response.should be_success
+    end
+
+    it "should have the right title" do
+      get 'about'
+      response.should have_selector("title", :content => "About Ruuva")
+    end    
+  end
+
+  describe "GET 'terms'" do
+    it "should be successful" do
+      get 'terms'
+      response.should be_success
+    end
+
+    it "should have the right title" do
+      get 'terms'
+      response.should have_selector("title", :content => "Terms & Conditions")
+    end    
+  end
+  
+  describe "GET 'help'" do
+    it "should be successful" do
+      get 'help'
+      response.should be_success
+    end
+
+    it "should have the right title" do
+      get 'help'
+      response.should have_selector("title", :content => "Ruuva Help Guide")
+    end    
+  end    
 
 end
