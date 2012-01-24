@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title><%= @title %></title>
+<head>
+	<title><%= title %></title>
+	<%= render 'layouts/stylesheets' %>
+    <%= javascript_include_tag "application" %>     
     <%= csrf_meta_tag %>
-  </head>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
-
+<body>
+	<div class="wrapper">
+	  	<!-- Navigation Top Bar -->	
+	  	<%= render 'layouts/navbar' %>
+	  	<div class="containermain">
+    		<%= yield %>
+    	</div>
+    	<div class="push"></div>	
+    </div>
+    <%= render 'layouts/footer' %>
+</body>
 </html>

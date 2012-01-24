@@ -1,0 +1,22 @@
+<nav>
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <%= link_to image_tag("logonav.png", alt: "Ruuva Logo"), root_path, class: 'brand' %>
+          <ul class="nav">
+            <li><a href="#marketplace">Marketplace</a></li>
+            <li><a href="#learnmore">Learn More</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#FAQ">FAQ</a></li>
+            <li><a href="#contact">About</a></li>
+          </ul>
+          <!-- Sign in Form -->
+          <form action="" class="pull-right">
+            <input class="input-medium" type="text" placeholder="username" onclick="if(this.placeholder=='username') this.placeholder=' ';" onblur="if(this.placeholder!=='username') this.placeholder='username';">
+            <input class="input-medium" type="password" placeholder="password" onclick="if(this.placeholder=='password') this.placeholder=' ';" onblur="if(this.placeholder!=='password') this.placeholder='password';">
+            <button class="btn tiny" type="submit">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</nav>	
