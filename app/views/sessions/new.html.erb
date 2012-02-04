@@ -1,0 +1,8 @@
+<h1>Standalone Sesssions#New Login Form</h1>
+<%= form_tag sessions_path do  %>
+	<label><%= label_tag :email %></label>
+	<div class="input"><%= text_field_tag :email, params[:email] %></div><br>
+	<label><%= label_tag :password %></label>
+	<div class="input"><%= password_field_tag :password %></div><br>
+	<%= submit_tag "Log in", class: "btn primary large" %>
+<% end %>

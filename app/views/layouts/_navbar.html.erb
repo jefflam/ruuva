@@ -1,22 +1,62 @@
-<nav>
-    <div class="topbar">
-      <div class="fill">
-        <div class="container">
-          <%= link_to image_tag("logonav.png", alt: "Ruuva Logo"), root_path, class: 'brand' %>
-          <ul class="nav">
-            <li><a href="#marketplace">Marketplace</a></li>
-            <li><a href="#learnmore">Learn More</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#FAQ">FAQ</a></li>
-            <li><a href="#contact">About</a></li>
-          </ul>
-          <!-- Sign in Form -->
-          <form action="" class="pull-right">
-            <input class="input-medium" type="text" placeholder="username" onclick="if(this.placeholder=='username') this.placeholder=' ';" onblur="if(this.placeholder!=='username') this.placeholder='username';">
-            <input class="input-medium" type="password" placeholder="password" onclick="if(this.placeholder=='password') this.placeholder=' ';" onblur="if(this.placeholder!=='password') this.placeholder='password';">
-            <button class="btn tiny" type="submit">Sign in</button>
-          </form>
+<% if current_user %>
+  <nav>
+      <div class="topbar">
+        <div class="fill">
+          <div class="container">
+            <%= link_to image_tag("navbar/logonav.png", alt: "Ruuva Logo"), root_path, class: 'brand' %>
+            <ul class="nav">
+              <li><a href="#marketplace" class="marketplace">Marketplace</a></li>
+              <li><a href="#newsfeed" class="newsfeed">Newsfeed</a></li>
+              <li><a href="#shop" class="shop">Shop</a></li>
+            </ul>
+            <!-- Settings Form -->
+            <ul class="nav secondary-nav">
+              <li class="dropdown navbarprofilephoto" data-dropdown="dropdown">
+                <a href="#" class="dropdown-toggle"><%= gravatar_for @user %><%= current_user.name %></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Settings</a></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Log out", logout_path %></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-</nav>	
+  </nav>	
+<% else %>
+  <nav>
+      <div class="topbar">
+        <div class="fill">
+          <div class="container">
+            <%= link_to image_tag("navbar/logonav.png", alt: "Ruuva Logo"), root_path, class: 'brand' %>
+            <ul class="nav">
+              <li><a href="#marketplace" class="marketplace">Marketplace</a></li>
+              <li><a href="#learnmore">Learn More</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#FAQ">FAQ</a></li>
+              <li><a href="#contact">About</a></li>
+            </ul>
+            <!-- Sign in Form -->
+            <div class="pull-right">
+              <%= form_tag sessions_path do  %>
+                <%= text_field_tag :email, params[:email], 
+                  class: "input-medium", 
+                  placeholder: "email", 
+                  onclick: "if(this.placeholder=='email') this.placeholder=' ';", 
+                  onblur: "if(this.placeholder!=='email') this.placeholder='email';" 
+                %>
+                <%= password_field_tag :password, params[nil],
+                  class: "input-medium",
+                  placeholder: "password",
+                  onclick: "if(this.placeholder=='password') this.placeholder=' ';", 
+                  onblur: "if(this.placeholder!=='password') this.placeholder='password';" 
+                %>
+                <%= submit_tag "Log in", class: "btn tiny" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+  </nav>  
+<% end %>

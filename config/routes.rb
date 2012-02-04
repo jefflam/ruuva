@@ -1,5 +1,6 @@
 Ruuva::Application.routes.draw do
-  get "users/new"
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   match '/about',     to: 'static_pages#about'
   match '/contact',   to: 'static_pages#contact'
@@ -7,6 +8,8 @@ Ruuva::Application.routes.draw do
   match '/help',      to: 'static_pages#help'
 
   match '/signup',    to: 'users#new'
+  match '/login',     to: 'sessions#new'
+  match '/logout',    to: 'sessions#destroy'
 
   root to: 'pages#home'
 
