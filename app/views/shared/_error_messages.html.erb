@@ -1,5 +1,5 @@
 <% if @user.errors.any? %>
-    <div class="alert-message warning signupwarning">Oops! Something went wrong with the sign up...
+    <div class="alert-message warning signupwarning">Oops! Something went wrong with the signup process...
     <ul>
 	    <% @user.errors.full_messages.each do |msg| %>
 	       <li><%= msg %></li>

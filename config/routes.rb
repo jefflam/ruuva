@@ -2,14 +2,16 @@ Ruuva::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
-  match '/about',     to: 'static_pages#about'
-  match '/contact',   to: 'static_pages#contact'
-  match '/terms',     to: 'static_pages#terms'
-  match '/help',      to: 'static_pages#help'
+  match '/about',       to: 'static_pages#about'
+  match '/contact',     to: 'static_pages#contact'
+  match '/terms',       to: 'static_pages#terms'
+  match '/help',        to: 'static_pages#help'
 
-  match '/signup',    to: 'users#new'
-  match '/login',     to: 'sessions#new'
-  match '/logout',    to: 'sessions#destroy'
+  match '/signup',      to: 'users#new'
+  match '/login',       to: 'sessions#new'
+  match '/logout',      to: 'sessions#destroy'
+
+  match '/marketplace', to: 'users#index'
 
   root to: 'pages#home'
 

@@ -1,3 +1,168 @@
+<% if current_user %>
+<div class="spanleft-newsfeed">
+	<%= gravatar_for @user %>
+	<div class="profilename"><%= @user.name %></div>
+	<div class="profilebio"><%= @user.user_bio %></div>
+	<div class="shopfollowbutton"><div class="btn shopuser primary">Follow User</div></div>		
+	<div class="shopviewbutton"><div class="btn shopuser primary">View User</div></div>						
+</div>			
+
+<!-- Center Column, Main -->
+<div class="spanright-newsfeed">
+	<ul class="tabs" data-tabs="tabs">
+  		<li class="active"><a href="#following">Following</a></li>
+ 	 	<li><a href="#newshops">New Shops</a></li>
+ 	 	<li><a href="#popular">Popular</a></li>
+	</ul>
+	<div class="tab-content">
+	 	<div id="following" class="active">
+			<ul>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">Photo or new updates</div>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">Photo or new updates</div>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">Photo or new updates</div>
+					</div>
+					<div class="clearfix"></div>			
+				</li>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">
+							blah
+							<br><br><br><br>
+							blah
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">Photo or new updates</div>
+					</div>
+					<div class="clearfix"></div>
+				</li>																								
+			</ul>
+	  	</div>
+	 	<div id="newshops">
+			<ul>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">New shop updates!</div>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">Photo or new updates</div>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">Photo or new updates</div>
+					</div>
+					<div class="clearfix"></div>			
+				</li>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">
+							blah
+							<br><br><br><br>
+							blah
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">Photo or new updates</div>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+			</ul>
+	  	</div>
+
+	 	<div id="popular">
+			<ul>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">Popular updates!</div>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">Photo or new updates</div>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">Photo or new updates</div>
+					</div>
+					<div class="clearfix"></div>			
+				</li>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">
+							blah
+							<br><br><br><br>
+							blah
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</li>
+				<li>
+					<div class="profilephoto"><img src="http://placehold.it/48x48.png" /></div>
+					<div class="feed">
+						<div class="name"><a href="#">DKNY</a></div>
+						<div class="updates">Photo or new updates</div>
+					</div>
+					<div class="clearfix"></div>
+				</li>				
+			</ul>
+	  	</div>					  						  	
+	</div>
+</div>
+<% else %>
 <div class="containertop">
 	<div class="row" id="home">
 		<section id="caption" class="page-header">
@@ -9,3 +174,4 @@
 		</section>			
 	</div>
 </div>	
+<% end %>

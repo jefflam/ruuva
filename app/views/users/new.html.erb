@@ -17,7 +17,7 @@
 				<div id="signupor">––––– or –––––</div>
 
 				<%= form_for(@user) do |f| %>
-					<%= render 'shared/error_messages' %>
+					<%= render 'shared/flash_notices' %>
 					<label><%= f.label :name %></label>
 					<div class="input"><%= f.text_field :name %></div><br>
 					<label><%= f.label :email %></label>
@@ -26,7 +26,7 @@
 					<div class="input"><%= f.password_field :password %></div><br>
 					<label><%= f.label :password_confirmation, "Password again" %></label>
 					<div class="input"><%= f.password_field :password_confirmation %></div>	<br>
-					<div class="signupbutton"><%= f.submit "Sign Me Up!", class: "btn btn-primary large" %></div>
+					<div class="submitbutton"><%= f.submit "Sign Me Up!", class: "btn btn-primary large" %></div>
 				<% end %>			
 				</div>
 			</div>

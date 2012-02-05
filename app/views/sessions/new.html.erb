@@ -1,8 +1,9 @@
-<h1>Standalone Sesssions#New Login Form</h1>
+<h1>Login to Ruuva</h1>
 <%= form_tag sessions_path do  %>
 	<label><%= label_tag :email %></label>
 	<div class="input"><%= text_field_tag :email, params[:email] %></div><br>
 	<label><%= label_tag :password %></label>
 	<div class="input"><%= password_field_tag :password %></div><br>
-	<%= submit_tag "Log in", class: "btn primary large" %>
+	<div class="submitbutton"><%= submit_tag "Log in", class: "btn primary large" %></div>
 <% end %>
+No account? <%= link_to "Create your account in 30 seconds for free!", signup_path %>

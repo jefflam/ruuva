@@ -5,16 +5,16 @@
           <div class="container">
             <%= link_to image_tag("navbar/logonav.png", alt: "Ruuva Logo"), root_path, class: 'brand' %>
             <ul class="nav">
-              <li><a href="#marketplace" class="marketplace">Marketplace</a></li>
-              <li><a href="#newsfeed" class="newsfeed">Newsfeed</a></li>
+              <li><%= link_to "Marketplace", marketplace_path, class: 'marketplace' %></li>
+              <li><%= link_to "Newsfeed", root_path, class: 'newsfeed' %></li>
               <li><a href="#shop" class="shop">Shop</a></li>
             </ul>
             <!-- Settings Form -->
             <ul class="nav secondary-nav">
               <li class="dropdown navbarprofilephoto" data-dropdown="dropdown">
-                <a href="#" class="dropdown-toggle"><%= gravatar_for @user %><%= current_user.name %></a>
+                <a href="#" class="dropdown-toggle"><%= gravatar_for @user, size: 24, type: "profilephoto" %><%= current_user.name %></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Settings</a></li>
+                  <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                   <li class="divider"></li>
                   <li><%= link_to "Log out", logout_path %></li>
                 </ul>
