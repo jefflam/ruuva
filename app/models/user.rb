@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
 	attr_accessible :name, :email, :password, :password_confirmation, :user_bio
 	has_secure_password
 
+	has_many :posts, dependent: :destroy
+
 	validates :name, presence: true, length: { maximum: 50 }
 	valid_email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, 	presence: true, 
@@ -23,4 +25,8 @@ class User < ActiveRecord::Base
 						uniqueness: { case_sensitive: false }
 	validates :password, presence: true, length: { minimum: 6 }
 	validates :user_bio, length: { maximum: 200 }
+
+	def feed
+		Post.where("user_id = ?", id)
+	end
 end

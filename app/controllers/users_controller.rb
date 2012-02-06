@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@posts = @user.posts
 		@title = @user.name
 	end
 
@@ -50,14 +51,6 @@ class UsersController < ApplicationController
 	end
 
 	private
-
-		def authenticate
-			unless current_user
-				store_location
-				redirect_to login_path 
-				flash[:error] = "Sorry, you have to login to view this page."
-			end
-		end
 
 		def correct_user
 			@user = User.find(params[:id])

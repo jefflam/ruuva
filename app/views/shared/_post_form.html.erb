@@ -1,0 +1,6 @@
+<h3>Heya! Anything new, lately?</h3>
+<%= form_for @post do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div class="update-feed"><%= f.text_area :content, class: "update-feed-size" %></div><br>
+	<div class="update-feed-btn"><%= f.submit "Post", class: "btn btn-primary medium" %></div>
+<% end %>

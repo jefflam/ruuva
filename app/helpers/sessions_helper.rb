@@ -15,6 +15,14 @@ module SessionsHelper
 
 	private
 
+		def authenticate
+			unless current_user
+				store_location
+				redirect_to login_path 
+				flash[:error] = "Sorry, you have to login to view this page."
+			end
+		end	
+
 		def clear_return_to
 			session.delete(:return_to)
 		end
