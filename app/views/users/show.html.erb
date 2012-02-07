@@ -1,16 +1,10 @@
 <% if current_user %>
-<div class="spanleft-newsfeed">
-	<%= gravatar_for @user %>
-	<div class="profilename"><%= @user.name %></div>
-	<div class="profilebio"><%= @user.user_bio %></div>
-	<div class="shopfollowbutton"><div class="btn shopuser primary">Follow User</div></div>		
-	<div class="shopviewbutton"><div class="btn shopuser primary">View User</div></div>				<div class="profilename">Posts: <%= @user.posts.count %></div>		
-</div>			
+<%= render 'shared/user_info' %>		
 
 <!-- Center Column, Main -->
 <div class="spanright-newsfeed">
 	<ul class="tabs" data-tabs="tabs">
-  		<li class="active"><a href="#following">Following</a></li>
+  		<li class="active"><a href="#following">Following (This is Show.html rendering Post.html)</a></li>
  	 	<li><a href="#newshops">New Shops</a></li>
  	 	<li><a href="#popular">Popular</a></li>
 	</ul>
