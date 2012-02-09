@@ -1,3 +1,60 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Feed Styling */
+
+.nav-tabs {
+	margin-bottom:0px;
+}
+	.tab-pane {
+		border-left:1px solid #ccc;
+		border-right:1px solid #ccc;
+	}
+	.tab-pane ul {
+		margin-left:0px;
+		list-style:none;
+	}	
+	.tab-pane ul li {
+		min-height:95px;
+		border-bottom:1px solid #ccc;
+	}
+	.tab-pane ul li .profilephoto {
+		width:60px;
+		min-height:75px;
+		float:left;
+		margin:20px 0 0 20px;
+	}
+	.tab-pane ul li .feed {
+		width:600px;
+		float:left;
+		margin:17px 0 0 10px;		
+	}
+		.tab-pane ul li .feed .name a {
+			font-family:inherit;
+			font-size:14px;
+			float:left;
+		}	
+		.tab-pane ul li .feed .updates {
+			font-family:inherit;
+			font-size:14px;
+			float:left;
+			clear:both;
+			color:#333333;
+		}
+		.tab-pane ul li .feed .timestamp {
+			font-family:inherit;
+			font-size:12px;
+			float:left;
+			clear:both;
+			color:#777777;
+			margin-top:30px;
+		}	
+		.tab-pane ul li .clearfix { 
+			clear:both;
+			padding-top:20px;
+		}
+
+.update-feed { margin:0px; }
+.update-feed-btn { margin-left:570px; }
+.update-feed-size { max-width:710px; min-width:710px; height:40px; font-size:14px;}

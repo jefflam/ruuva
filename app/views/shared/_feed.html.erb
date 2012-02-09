@@ -1,8 +1,10 @@
-<ul class="tabs" data-tabs="tabs">
-	<li class="active"><a href="#following">Following (This is Feed.html)</a></li>
- 	<li><a href="#newshops">New Shops</a></li>
- 	<li><a href="#popular">Popular</a></li>
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#main" data-toggle="tab">Following (This is Feed.html)</a></li>
+ 	<li><a href="#newshops" data-toggle="tab">New Shops</a></li>
+ 	<li><a href="#popular" data-toggle="tab">Popular</a></li>
 </ul>
-<% unless @feed_items.empty? %>
-	<%= render partial: 'shared/feed_item', collection: @feed_items %>
-<% end %>
+<div class="tab-content">
+	<% unless @feed_items.empty? %>
+		<%= render partial: 'shared/feed_item', collection: @feed_items %>
+	<% end %>
+</div>

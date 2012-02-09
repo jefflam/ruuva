@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :authenticate, only: [:edit, :update]
+	before_filter :authenticate, except: [:show, :new, :create, :index]
 	before_filter :correct_user, only: [:edit, :update]
 	before_filter :admin_user, only: :destroy
 
@@ -12,7 +12,9 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 		if @user.save
   			session[:user_id] = @user.id
-			redirect_to root_path, notice: "Signed up!"
+  			@user.follow!(User.find(1))
+			redirect_to root_path
+			flash[:success] = "Signed up!"
 		else
 			render "new"
 		end  	
@@ -49,6 +51,20 @@ class UsersController < ApplicationController
 		@user = current_user
 		@users = User.all
 	end
+
+	def following
+		@title = "Following"
+		@user = User.find(params[:id])
+		@users = @user.following
+		render 'show_follow'
+	end
+
+	def followers
+		@title = "Followers"
+		@user = User.find(params[:id])
+		@users = @user.followers
+		render 'show_follow'
+	end	
 
 	private
 

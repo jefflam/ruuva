@@ -1,3 +1,113 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Nav Bar Styling */
+
+.navbarprofilephoto {
+	min-width:100px;
+}
+	.profilephoto {
+		float:left;
+		margin-top:-3px;
+		margin-right:6px;
+	}
+
+/* User Info box */
+
+.user-info {
+	background-color:#fff;
+	height:85px;
+	margin:0 auto;
+	border:1px solid #eee;
+	margin-bottom:10px;
+}
+
+	.user-info .photo {
+		width:64px;
+		height:64px;
+		float:left;
+		margin-left:10px;
+		margin-top:10px;
+	}
+
+	.user-info .namebio {
+		width:300px;
+		height:80px;
+		float:left;
+		margin-left:10px;
+		margin-top:10px;
+	}
+
+	.user-info .name {
+		width:300px;
+		height:26px;
+		float:left;
+		font:arial;
+		font-size:24px;
+		font-weight:bold;
+		margin-top:3px;
+	}
+
+	.user-info .bio {
+		font-family:arial;
+		width:500px;
+		float:left;
+		height:35px;
+		font-size:12px;
+	}
+
+	.user-info .followers {
+		width:120px;
+		height:70px;
+		margin-top:15px;
+		border-left:1px solid #eee;
+
+		float: right;
+
+		font-family:arial;
+		font-size:12px;
+		margin-top:10px;
+		text-align:center;
+	}
+
+		.user-info .followers .number {
+			width:120px;
+			height:35px;
+			margin-top:15px;
+			font-size:32px;
+		}
+
+	.user-info .following {
+		width:120px;
+		height:70px;
+		margin-top:15px;
+		border-left:1px solid #eee;
+		float: right;
+
+		font-family:arial;
+		font-size:12px;
+		margin-top:10px;
+		text-align:center;
+	}
+
+		.user-info .following .number {
+			width:120px;
+			height:35px;
+			margin-top:15px;
+			font-size:32px;
+		}
+
+	.user-info .btnbox {
+		width:150px;
+		margin-right:10px;
+		margin-top:10px;
+		height:70px;
+		float:right;
+	}
+
+		.user-info .btnbox a {
+			padding:8px 40px;
+			margin-top:16px;
+			font-size:12px;
+		}

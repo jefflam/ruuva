@@ -1,18 +1,30 @@
 <% if current_user %>
   <nav>
-      <div class="topbar">
-        <div class="fill">
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
           <div class="container">
             <%= link_to image_tag("navbar/logonav.png", alt: "Ruuva Logo"), root_path, class: 'brand' %>
             <ul class="nav">
-              <li><%= link_to "Marketplace", marketplace_path, class: 'marketplace' %></li>
-              <li><%= link_to "Newsfeed", root_path, class: 'newsfeed' %></li>
-              <li><a href="#shop" class="shop">Shop</a></li>
+              <li>
+                <%= link_to(marketplace_path) do %>
+                  <i class="icon-shopping-cart icon-white"></i> Marketplace
+                <% end %>
+              </li>
+              <li>
+                <%= link_to(root_path) do %>
+                  <i class="icon-inbox icon-white"></i> Newsfeed
+                <% end %>
+              </li>
+              <li>
+                <%= link_to("#") do %>
+                  <i class="icon-home icon-white"></i> Shop
+                <% end %>
+              </li>            
             </ul>
             <!-- Settings Form -->
-            <ul class="nav secondary-nav">
+            <ul class="nav secondary-nav pull-right">
               <li class="dropdown navbarprofilephoto" data-dropdown="dropdown">
-                <a href="#" class="dropdown-toggle"><%= gravatar_for @user, size: 24, type: "profilephoto" %><%= current_user.name %></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= gravatar_for @user, size: 24, type: "profilephoto" %><%= current_user.name %> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                   <li class="divider"></li>
@@ -26,8 +38,8 @@
   </nav>	
 <% else %>
   <nav>
-      <div class="topbar">
-        <div class="fill">
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
           <div class="container">
             <%= link_to image_tag("navbar/logonav.png", alt: "Ruuva Logo"), root_path, class: 'brand' %>
             <ul class="nav">

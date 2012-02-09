@@ -1,38 +1,5 @@
 /* Specific Styling */
 
-/* Nav Bar */
-
-.topbar div > li a, .marketplace {
-	background:url(<%= asset_path 'navbar/marketplace.png' %>) 10px 8px;
-	background-repeat:no-repeat;
-	top:10px;
-	width:92px;
-	text-align:right;
-}
-.topbar div > li a, .newsfeed {
-	background:url(<%= asset_path 'navbar/newsfeed.png' %>) 10px 12px;
-	background-repeat:no-repeat;
-	top:10px;
-	width:83px;
-	text-align:right;
-}
-.topbar div > li a, .shop {
-	background:url(<%= asset_path 'navbar/shop.png' %>) 10px 9px;
-	background-repeat:no-repeat;
-	top:10px;
-	width:59px;
-	text-align:right;
-}
-
-.navbarprofilephoto {
-	min-width:100px;
-}
-	.profilephoto {
-		float:left;
-		margin-top:-3px;
-		margin-right:6px;
-	}
-
 /* Main Page, Marketplace */
 
 body { padding-top:40px; }
@@ -182,60 +149,6 @@ body { padding-top:40px; }
 	margin-left:20px;
 }
 
-.spanright-newsfeed .tabs {
-	margin-bottom:0px;
-}
-	.spanright-newsfeed .tab-content {
-		border-left:1px solid #ccc;
-		border-right:1px solid #ccc;
-	}
-	.spanright-newsfeed .tab-content ul {
-		margin-left:0px;
-	}	
-	.spanright-newsfeed .tab-content ul li {
-		width:719px;
-		min-height:95px;
-		border-bottom:1px solid #ccc;
-	}
-	.spanright-newsfeed .tab-content ul li .profilephoto {
-		width:60px;
-		min-height:75px;
-		float:left;
-		margin:20px 0 0 20px;
-	}
-	.spanright-newsfeed .tab-content ul li .feed {
-		width:600px;
-		float:left;
-		margin:17px 0 0 10px;		
-	}
-		.spanright-newsfeed .tab-content ul li .feed .name a {
-			font-family:inherit;
-			font-size:14px;
-			float:left;
-		}	
-		.spanright-newsfeed .tab-content ul li .feed .updates {
-			font-family:inherit;
-			font-size:14px;
-			float:left;
-			clear:both;
-			color:#333333;
-		}
-		.spanright-newsfeed .tab-content ul li .feed .timestamp {
-			font-family:inherit;
-			font-size:12px;
-			float:left;
-			clear:both;
-			color:#777777;
-			margin-top:30px;
-		}	
-		.spanright-newsfeed .tab-content ul li .clearfix { 
-			clear:both;
-			padding-top:20px;
-		}
-
-.update-feed { margin:0px; }
-.update-feed-btn { margin-left:570px; }
-.update-feed-size { max-width:710px; min-width:710px; height:40px; font-size:14px;}
 
 /* Product Page from Marketplace */
 
@@ -521,8 +434,8 @@ html, body { height: 100%;}
 }
 .footer, .push { height: 4em; clear:both;}
 footer { 
-	width:980px;
 	margin:0 auto; 
 	border-top:1px solid #ccc;
 	margin-top:20px;
+	padding-top:10px;
 }

@@ -4,10 +4,10 @@ Ruuva::Application.routes.draw do
       get :following, :followers
     end
   end
-  
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :posts, only: [:create, :destroy]
-  resource :relationships, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   match '/about',       to: 'static_pages#about'
   match '/contact',     to: 'static_pages#contact'

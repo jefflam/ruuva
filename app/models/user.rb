@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
 	validates :user_bio, length: { maximum: 200 }
 
 	def feed
-		Post.where("user_id = ?", id)
+		Post.from_users_followed_by(self)
 	end
 
 	def following?(followed)
