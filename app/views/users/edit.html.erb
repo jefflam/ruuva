@@ -1,16 +1,48 @@
-<h1>Your account settings</h1>
+<div class="container headline page-header">
+	<h1><%= @title %></h1>
+</div>		
 
-<%= form_for(@user) do |f| %>
-	<label><%= f.label :name %></label>
-	<div class="input"><%= f.text_field :name %></div><br>
-	<label><%= f.label :email %></label>
-	<div class="input"><%= f.text_field :email %></div><br>
-	<label><%= f.label :user_bio %></label>
-	<div class="input"><%= f.text_area :user_bio %></div><br><br>
-	<div class="alert-message block-message info">Please enter your password and click "Update Changes" to update your settings.</div><br>
-	<label><%= f.label :password %></label>
-	<div class="input"><%= f.password_field :password %></div><br>
-	<label><%= f.label :password_confirmation, "Password again" %></label>
-	<div class="input"><%= f.password_field :password_confirmation %></div>	<br>
-	<div class="submitbutton"><%= f.submit "Update Changes", class: "btn btn-primary large" %></div>
-<% end %>			
+<div class="span7 offset2 well">	
+<%= render 'shared/flash_notices' %>
+<%= form_for @user, html: { multipart: true } do |f| %>
+	<div class="control-group">
+		<%= image_tag (@user.avatar_url), class: "avatar" if @user.avatar? %>
+		<%= f.label :avatar, "Add/Edit your profile Picture" %>
+		<%= f.file_field :avatar %>
+	</div>
+	<div class="control-group">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="control-group">	
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	</div>
+	<div class="control-group">
+		<%= f.label :user_bio, "Write a little bio/description of yourself or your shop" %>
+		<%= f.text_area :user_bio, class: "span5", rows: "4" %>
+	</div>
+	<div class="control-group">
+		<%= f.label :shop, "Activate shop?" %>
+		<%= f.check_box :shop %> Check the box to activate your shop!
+	</div>
+	<div class="control-group">
+		<%= image_tag @user.cover_photo_url, class: "cover_photo_preview" if @user.cover_photo? %>
+		<%= f.label :cover_photo, "Add a Cover Photo to Your Shop Page" %>
+		<%= f.file_field :cover_photo %>
+	</div>
+	<div class="alert alert-info span6">
+		<strong>Take note!</strong> You have to enter your passwords in the box below to proceed with any updates you have done in your settings page. You may also utilize the fields below to change your account password.
+	</div>
+	<div class="control-group">
+		<%= f.label :password %>
+		<%= f.password_field :password, class: "focused" %>
+		<%= f.label :password_confirmation, "Password again" %>
+		<%= f.password_field :password_confirmation, class: "focused" %>
+	</div>
+	<div class="form-actions">
+		<%= f.submit "Update Changes", class: "btn btn-primary btn-large" %>
+	</div>
+<% end %>	
+
+</div>		

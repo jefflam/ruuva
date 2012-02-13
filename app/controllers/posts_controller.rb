@@ -7,8 +7,8 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@posts = current_user.posts.build(params[:post])
-		if @posts.save
+		@post = current_user.posts.build(params[:post])
+		if @post.save
 			flash[:success] = "New post added!"
 			redirect_to root_path
 		else
@@ -19,14 +19,8 @@ class PostsController < ApplicationController
 
 	def destroy
 		@post.destroy
+		flash[:success] = "Post deleted."
 		redirect_back_or root_path
 	end
 
-	private
-
-		def authorized_user
-			@post = current_user.posts.find_by_id(params[:id])
-			redirect_to root_path if @post.nil?
-			
-		end
 end

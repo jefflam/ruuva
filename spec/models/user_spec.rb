@@ -10,6 +10,9 @@
 #  name            :string(255)
 #  user_bio        :string(255)
 #  admin           :boolean         default(FALSE)
+#  shop            :boolean         default(FALSE)
+#  avatar          :string(255)
+#  cover_photo     :string(255)
 #
 
 require 'spec_helper'

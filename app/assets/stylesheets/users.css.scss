@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* User Edit Page */
+
+.avatar { width:128px; height:128px; }
+.cover_photo_preview { width:670px; height:200px; }
+
 /* Nav Bar Styling */
 
 .navbarprofilephoto {
@@ -11,6 +16,8 @@
 		float:left;
 		margin-top:-3px;
 		margin-right:6px;
+		height:24px;
+		width:24px;
 	}
 
 /* User Info box */
@@ -18,7 +25,6 @@
 .user-info {
 	background-color:#fff;
 	height:85px;
-	margin:0 auto;
 	border:1px solid #eee;
 	margin-bottom:10px;
 }
@@ -30,7 +36,10 @@
 		margin-left:10px;
 		margin-top:10px;
 	}
-
+		.user-info .photo .avatar {
+			width:64px;
+			height:64px;
+		}
 	.user-info .namebio {
 		width:300px;
 		height:80px;
@@ -99,15 +108,27 @@
 		}
 
 	.user-info .btnbox {
-		width:150px;
-		margin-right:10px;
+		width:120px;
 		margin-top:10px;
 		height:70px;
 		float:right;
+		border-left:1px solid #eee;
 	}
 
-		.user-info .btnbox a {
-			padding:8px 40px;
-			margin-top:16px;
-			font-size:12px;
-		}
+	.user-info .btnbox #follow_form {
+		margin-top:17px;
+		text-align:center;
+	}
+
+/* User Shop Styling */
+
+.shop-header {
+	margin-top:-5px;
+	border-right:1px solid #eee;
+	border-left:1px solid #eee;
+}
+
+.add-cover-photo {
+	margin-top:180px;
+	margin-bottom:180px;
+}

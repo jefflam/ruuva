@@ -9,8 +9,9 @@ group :assets do
 end
 
 gem 'jquery-rails', '2.0.0'
-
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development do
 	gem 'rspec-rails', '2.8.1'

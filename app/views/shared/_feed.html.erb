@@ -1,9 +1,5 @@
-<ul class="nav nav-tabs">
-	<li class="active"><a href="#main" data-toggle="tab">Following (This is Feed.html)</a></li>
- 	<li><a href="#newshops" data-toggle="tab">New Shops</a></li>
- 	<li><a href="#popular" data-toggle="tab">Popular</a></li>
-</ul>
-<div class="tab-content">
+<div class="span8">
+	<h3>Latest happenings...</h3>
 	<% unless @feed_items.empty? %>
 		<%= render partial: 'shared/feed_item', collection: @feed_items %>
 	<% end %>

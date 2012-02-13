@@ -1,37 +1,26 @@
-<!-- Call to action: To display only if user has not logged in. -->
-<div class="container">
-<div class="row" id="home">
-	<section id="caption" class="page-header">
-		<h1>
-			Create a socialized shopping experience easily and quickly.
-			<p><small>
-				Get started in just 60 seconds!
-			</small></p>
-		</h1>
-	</section>			
-</div>
-</div>	
+<div class="container headline page-header">
+	<h1>The Ruuva Marketplace</h1>
+	<p>Browse around and be happy!</p>
+</div>			
 <!-- Left Column, Navigation -->
 	
 <!-- Center Column, Main -->
 <div class="container">
 	<ul class="thumbnails">
 		<% @users.each do |user| %>
+		<% if user.shop? %>
 		<li>	
-			<%= link_to(user, class: "thumbnail") do %>
+			<%= link_to(shop_user_path(user), class: "thumbnail") do %>
 				<%= gravatar_for(user, size:190) %>
 				<div class="caption">
-					<h5>
-						<%= user.name %>
-					</h5>
-					<p>
-						Clothes, Male
-					</p>
+					<h5><%= user.name %></h5>
+					<p>Category or description</p>
 				</div>
 			<% end %>
 			<% if current_user.admin? %>
 				<%= link_to "Delete", user, method: :delete, confirm: "Sure?" %>
-			<% end %>				
+			<% end %>	
+		<% end %>			
 		</li>
 		<% end %>	
 	</ul>

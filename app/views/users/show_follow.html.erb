@@ -1,87 +1,23 @@
-<!-- Call to action: To display only if user has not logged in. -->
-<div class="containertop">
-<div class="row" id="home">
-	<section id="caption" class="page-header">
-		<h1><%= @title %></h1>
-	</section>			
-</div>
-</div>	
-<!-- Left Column, Navigation -->
-<div class="containermain">
-	<div class="spanleft span-pushleft">
-		<h3>Marketplace</h3>
-		<h4>Men</h4>
-			<ul>
-				<li>Accessories</li>
-				<li>Tops</li>
-				<li>Bottoms</li>
-				<li>Shoes</li>
-				<li>Others</li>
-			</ul>
-		<h4>Women</h4>
-			<ul>
-				<li>Accessories</li>
-				<li>Tops</li>
-				<li>Bottoms</li>
-				<li>Shoes</li>
-				<li>Others</li>
-			</ul>
-		<h4>Brands</h4>
-			<ul>
-				<li>Topman</li>
-				<li>DKNY</li>
-				<li>Nike</li>
-				<li>Nudie</li>
-				<li>Toyota</li>
-			</ul>
-		<h4>Shops</h4>
-			<ul>
-				<li>Zouk</li>
-				<li>LoveBonito</li>
-				<li>Shoptop</li>
-				<li>Hyatt</li>
-				<li>Capella</li>
-			</ul>												
-	</div>			
-	
-	<!-- Center Column, Main -->
-	<div class="spanmain">
-		<ul class="media-grid">
-			<% unless @users.empty? %>
-			<% @users.each do |user| %>
-			<li>	
-				<%= link_to(user) do %>
-					<%= gravatar_for(user, size:190) %>
-					<div class="mediagridinfo">
-						<div class="mediagridproducttitle">
-							<%= user.name %>
-						</div>
-						<div class="mediagridproductprice">
-							Clothes, Male
-						</div>
-						<div class="mediagridshoptitle">
-							Fans: 300
-						</div>
-					</div>
-				<% end %>	
-			</li>
-			<% end %>
-			<% end %>
-			<li>
-				<a href="#"><img class="thumbnail" src="http://placehold.it/190x240">
-					<div class="mediagridinfo">
-						<div class="mediagridproducttitle">
-							Plain White Tees With 3 Pockets
-						</div>
-						<div class="mediagridproductprice">
-							$29.90
-						</div>
-						<div class="mediagridshoptitle">
-							DKNY
-						</div>
-					</div>
-				</a>
-			</li>			
-		</ul>
-	</div>
-</div>
+<div class="container headline page-header">
+	<h1><%= @title %></h1>
+</div>			
+<!-- Center Column, Main -->
+<% unless @users.empty? %>
+<ul class="thumbnails">
+	<% @users.each do |user| %>
+	<li>	
+		<%= link_to(user, class: "thumbnail") do %>
+			<%= gravatar_for(user, size:190) %>
+			<div class="caption">
+				<h5>
+					<%= user.name %>
+				</h5>
+				<p>
+					Clothes, Male
+				</p>
+			</div>
+		<% end %>			
+	</li>
+	<% end %>	
+</ul>
+<% end %>

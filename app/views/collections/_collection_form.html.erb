@@ -1,0 +1,19 @@
+<% if current_user == @user %>
+	<%= form_for @collection, html: { multipart: true } do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+		<li>
+			<div class="thumbnail">
+				<div class="caption">
+					<h2>Add a new collection!</h2>
+					<p><%= f.label :image, "Collection Picture" %></p>
+					<p><%= f.file_field :image %></p>
+					<h5><%= f.label :name, "Collection Name" %></h5>
+					<h5><%= f.text_field :name %></h5>
+					<p><%= f.label :description, "Collection Description" %></p>
+					<p><%= f.text_field :description %></p>
+					<p><%= f.submit "Add Collection!", class: "btn btn-medium" %><p>
+				</div>
+			</div>
+		</li>	
+	<% end %>
+<% end %>

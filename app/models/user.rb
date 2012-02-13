@@ -10,11 +10,19 @@
 #  name            :string(255)
 #  user_bio        :string(255)
 #  admin           :boolean         default(FALSE)
+#  shop            :boolean         default(FALSE)
+#  avatar          :string(255)
+#  cover_photo     :string(255)
 #
 
 class User < ActiveRecord::Base
-	attr_accessible :name, :email, :password, :password_confirmation, :user_bio
+	attr_accessible :name, :email, :password, :password_confirmation, :user_bio, 
+					:shop, :cover_photo, :avatar, :remote_image_url
 	has_secure_password
+	mount_uploader :cover_photo, ImageUploader
+	mount_uploader :avatar, ImageUploader
+
+	scope :shop, where(shop: true)
 
 	has_many :posts, 					dependent: :destroy
 	has_many :relationships,		 	dependent: :destroy,
@@ -24,7 +32,9 @@ class User < ActiveRecord::Base
 										class_name: "Relationship"
 									
 	has_many :following, through: :relationships, source: :followed	
-	has_many :followers, through: :reverse_relationships, source: :follower		
+	has_many :followers, through: :reverse_relationships, source: :follower	
+	
+	has_many :collections,				dependent: :destroy	
 
 	validates :name, presence: true, length: { maximum: 50 }
 	valid_email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

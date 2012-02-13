@@ -2,22 +2,23 @@
 <%= render 'shared/user_info' %>		
 
 <!-- Center Column, Main -->
-<div class="spanright-newsfeed">
-	<ul class="tabs" data-tabs="tabs">
-  		<li class="active"><a href="#following">Following (This is Show.html rendering Post.html)</a></li>
- 	 	<li><a href="#newshops">New Shops</a></li>
- 	 	<li><a href="#popular">Popular</a></li>
-	</ul>
-	<% unless @user.posts.empty? %>
-		<%= render @posts %>
-	<% end %>
+<div class="container">
+	<div class="row">
+		<div class="span8">
+			<% unless @user.posts.empty? %>
+				<%= render @posts %>
+			<% end %>
+		</div>
+		<%= render 'shared/random_updates' %>
+	</div>
 </div>
 <% else %>
-<div class="containertop">
+<div class="container">
 	<div class="row" id="home">
 		<section id="caption" class="page-header">
 			<h1>
-				This is the wall feed of <%= User.find(params[:id]).name %>. Login to see!
+				Ruuva makes online shopping simpler and more socialble. Sign up in 10 seconds for free!
+				<%= link_to 'Click here to sign up in 10 seconds!', signup_path %>
 			</h1>
 
 		</section>			

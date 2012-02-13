@@ -28,12 +28,17 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
+		@title = "Your Account Settings"
 	end
 
 	def update
 		@user = User.find(params[:id])
 		if @user.update_attributes(params[:user])
-			redirect_to root_path
+			if @user.shop?
+				redirect_to shop_user_path(current_user)
+			else
+				redirect_to root_path
+			end
 			flash[:success] = "Your have updated your settings successfully."
 		else
 			flash.now[:error] = "Sorry! We are unable to update your settings. Please check your fields and try again."
@@ -65,6 +70,14 @@ class UsersController < ApplicationController
 		@users = @user.followers
 		render 'show_follow'
 	end	
+
+	def shop
+		@title = "My Shop"
+		@user = User.find(params[:id])
+		@collection = Collection.new
+		@collections = @user.collections
+		render 'shop'
+	end
 
 	private
 

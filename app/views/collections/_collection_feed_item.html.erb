@@ -1,0 +1,16 @@
+<% @collections.each do |collection| %>
+<li>
+	<a href="#" class="thumbnail">
+		<%= image_tag collection.image_url(:thumb).to_s %>
+		<div class="caption">
+			<h5 class="collection"><%= collection.name %></h5>
+			<p class="collection"><%= collection.description %></p>
+		</div>
+	</a>
+		<% if current_user==@user %>
+			<%= link_to "Delete", collection, method: :delete, 
+										confirm: "You sure?", 
+										title: collection.name %>
+		<% end %>
+</li>
+<% end %>

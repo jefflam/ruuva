@@ -16,7 +16,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to("#") do %>
+                <%= link_to(shop_user_path(current_user)) do %>
                   <i class="icon-home icon-white"></i> Shop
                 <% end %>
               </li>            
@@ -24,7 +24,15 @@
             <!-- Settings Form -->
             <ul class="nav secondary-nav pull-right">
               <li class="dropdown navbarprofilephoto" data-dropdown="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= gravatar_for @user, size: 24, type: "profilephoto" %><%= current_user.name %> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <% if current_user.avatar? %>
+                    <%= image_tag current_user.avatar_url, class: "profilephoto" %>
+                  <% else %>
+                    <%= gravatar_for current_user, size: 24, type: "profilephoto" %>
+                  <% end %>
+                  <%= current_user.name %>
+                  <b class="caret"></b>
+                </a>
                 <ul class="dropdown-menu">
                   <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                   <li class="divider"></li>
