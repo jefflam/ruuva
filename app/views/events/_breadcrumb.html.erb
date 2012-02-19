@@ -1,0 +1,11 @@
+<ul class="breadcrumb">
+	<li>
+		<%= link_to @user.name, shop_user_path(@user) %> <span class="divider">/</span>
+	</li>
+	<li>
+		<%= link_to @collection.name, collection_path(@collection) %> <span class="divider">/</span>
+	</li>
+	<li class="active">
+		Event
+	</li>
+</ul>

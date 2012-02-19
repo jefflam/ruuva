@@ -1,16 +1,40 @@
 <% @collections.each do |collection| %>
 <li>
-	<a href="#" class="thumbnail">
+	<div class="hover-buttons">
+		<% if current_user?(@user) %>
+			<%= link_to "Delete", collection, method: :delete,	confirm: "You sure?", title: collection.name, class: "btn btn-small btn-danger" %>
+		<% end %>
+		<a href="#modal-<%= collection.id %>" data-toggle="modal" data-target="#modal-<%= collection.id %>" class="btn btn-small">Expand</a>
+		<% unless collection.events.empty? %>
+			<div class="btn btn-small btn-success">Event</div>
+		<% else %>
+		<% end %>
+		<%= toggle_like_collection_button(collection, current_user) %>
+		<!-- add like count somewhere here, but .flaggings command not working -->
+	</div>	
+	<%= link_to(collection_path(collection), class: "thumbnail") do %>
 		<%= image_tag collection.image_url(:thumb).to_s %>
 		<div class="caption">
 			<h5 class="collection"><%= collection.name %></h5>
 			<p class="collection"><%= collection.description %></p>
 		</div>
-	</a>
-		<% if current_user==@user %>
-			<%= link_to "Delete", collection, method: :delete, 
-										confirm: "You sure?", 
-										title: collection.name %>
-		<% end %>
+	<% end %>
 </li>
+
+<!-- Enlarge Image Modal -->
+<div id="modal-<%= collection.id %>" class="modal hide fade">
+  <div class="modal-header">
+  	<a class="close" data-dismiss="modal">x</a>
+  	<h3><%= collection.name %></h3>
+  </div>
+  <div class="modal-body">
+    <%= image_tag collection.image_url.to_s %>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+  </div>
+</div>
+
+
+
 <% end %>

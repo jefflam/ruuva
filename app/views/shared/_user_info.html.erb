@@ -19,4 +19,6 @@
 		Followers
 		<div class="number"><a href="<%= followers_user_path(@user) %>" id="followers"><%= @user.followers.count %></a></div>
 	</div>
+	<div class="btnbox"><%= link_to "View Shop", shop_user_path(@user), class: "btn btn-medium shop-btn" %></div>
+	<div class="btnbox"><%= link_to "View Wall", user_path(@user), class: "btn btn-medium wall-btn" %></div>
 </div>

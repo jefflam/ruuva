@@ -7,17 +7,22 @@
             <ul class="nav">
               <li>
                 <%= link_to(marketplace_path) do %>
-                  <i class="icon-shopping-cart icon-white"></i> Marketplace
+                  <i class="icon-shopping-cart"></i> Marketplace
                 <% end %>
               </li>
               <li>
+                <%= link_to(following_user_path(current_user)) do %>
+                  <i class="icon-star"></i> Followed Shops
+                <% end %>
+              </li>              
+              <li>
                 <%= link_to(root_path) do %>
-                  <i class="icon-inbox icon-white"></i> Newsfeed
+                  <i class="icon-inbox"></i> Newsfeed
                 <% end %>
               </li>
               <li>
                 <%= link_to(shop_user_path(current_user)) do %>
-                  <i class="icon-home icon-white"></i> Shop
+                  <i class="icon-home"></i> My Shop
                 <% end %>
               </li>            
             </ul>

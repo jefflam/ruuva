@@ -11,7 +11,11 @@
 		<% if user.shop? %>
 		<li>	
 			<%= link_to(shop_user_path(user), class: "thumbnail") do %>
-				<%= gravatar_for(user, size:190) %>
+				<% if user.avatar? %>
+					<%= image_tag user.avatar_url, class: "marketplace-avatar" %>
+				<% else %>
+					<%= gravatar_for user, size: 190 %>
+				<% end %>
 				<div class="caption">
 					<h5><%= user.name %></h5>
 					<p>Category or description</p>

@@ -4,14 +4,16 @@
 <head>
 	<title><%= title %></title>
 	<%= render 'layouts/stylesheets' %>
-    <%= javascript_include_tag "application" %>     
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
 </head>
 
 <body>
 	<div class="wrapper">
 	  	<!-- Navigation Top Bar -->	
-	  	<%= render 'layouts/navbar' %>
+        <% if current_user %>
+	  	    <%= render 'layouts/navbar' %>
+        <% end %>
 	  	<div class="container">
     		<%= yield %>
     	</div>

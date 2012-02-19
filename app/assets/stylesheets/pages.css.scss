@@ -6,44 +6,45 @@
 
 .feed-item {
 	margin-left:0px;
-	min-height:95px;
-	border-top:1px solid #eee;	
+	margin-right:10px;
 }
 .feed-item .profilephoto {
-	width:60px;
-	min-height:75px;
+	width:48px;
 	float:left;
-	margin:20px 0 0 20px;
+	margin:10px 0 0 10px;
 }
 .feed-item .feed {
-	width:600px;
+	width:190px;
 	float:left;
-	margin:17px 0 0 10px;		
+	margin:10px 0 0 10px;		
 }
 	.feed-item .feed .name a {
 		font-family:inherit;
-		font-size:14px;
+		font-size:13px;
 		float:left;
 	}	
 	.feed-item .feed .updates {
 		font-family:inherit;
-		font-size:14px;
-		float:left;
-		clear:both;
-		color:#333333;
-	}
-	.feed-item .feed .timestamp {
-		font-family:inherit;
 		font-size:12px;
 		float:left;
 		clear:both;
+		margin-top:5px;
+		color:#333333;
+		line-height:16px;
+	}
+	.feed-item .feed .timestamp {
+		font-family:inherit;
+		font-size:11px;
+		float:left;
+		clear:both;
 		color:#777777;
-		margin-top:30px;
+		margin-top:10px;
 	}	
 	.feed-item .clearfix { 
 		clear:both;
 		padding-top:20px;
 	}
 
-.update-feed { 	max-height:60px; font-size:14px; }
-.update-feed-btn { margin-left:651px; }
+.update-feed { 	max-height:60px; font-size:14px; margin-top:5px; margin-bottom:5px;}
+.update-feed-box { margin-left:0px; }
+.wookmark { position: relative; }

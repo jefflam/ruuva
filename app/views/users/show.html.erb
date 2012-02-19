@@ -1,15 +1,12 @@
 <% if current_user %>
-<%= render 'shared/user_info' %>		
 
 <!-- Center Column, Main -->
 <div class="container">
-	<div class="row">
-		<div class="span8">
+	<%= render 'shared/user_info' %>		
+	<div class="container">
 			<% unless @user.posts.empty? %>
 				<%= render @posts %>
 			<% end %>
-		</div>
-		<%= render 'shared/random_updates' %>
 	</div>
 </div>
 <% else %>

@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+	before_filter :store_location, only: :home
+
  
 	def home
 		@title = "Simplifying and socializing online shopping - Ruuva"

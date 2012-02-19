@@ -1,26 +1,39 @@
 <% if current_user %>
-<%= render 'shared/user_info' %>		
-
-<!-- Center Column, Main -->
-<div class="container">
-<%= render 'shared/flash_notices' %>
-	<div class="row">
-	<%= render 'shared/post_form' %>
-	<%= render 'shared/random_updates' %>
-	<%= render 'shared/feed' %>
+	<div class="container">
+		<%= render 'shared/user_info' %>		
+		<%= render 'shared/flash_notices' %>
+		<div class="container">
+			<%= render 'shared/post_form' %>
+			<%= render 'shared/user_statistics' %>
+		</div>
+			<%= render 'shared/feed' %>
 	</div>
-</div>
 <% else %>
-<div class="container">
-<%= render 'shared/flash_notices' %>
-	<div class="row" id="home">
-		<section id="caption" class="page-header">
-			<h1>
-				Ruuva makes online shopping simpler and more sociable. Sign up in 10 seconds for free!
-				<%= link_to 'Click here to sign up in 10 seconds!', signup_path %>
-			</h1>
+	<div class="container">
+		<%= render 'shared/flash_notices' %>
+		<div class="row" id="home">
+			<section id="caption" class="page-header">
+				<h1>
+					Ruuva makes online shopping simpler and more sociable. Sign up in 10 seconds for free!
+					<%= link_to 'Click here to sign up in 10 seconds!', signup_path %>
+				</h1>
+			</section>			
+			    <%= form_tag sessions_path do  %>
+                <%= text_field_tag :email, params[:email], 
+                  class: "input-medium", 
+                  placeholder: "email", 
+                  onclick: "if(this.placeholder=='email') this.placeholder=' ';", 
+                  onblur: "if(this.placeholder!=='email') this.placeholder='email';" 
+                %>
+                <%= password_field_tag :password, params[nil],
+                  class: "input-medium",
+                  placeholder: "password",
+                  onclick: "if(this.placeholder=='password') this.placeholder=' ';", 
+                  onblur: "if(this.placeholder!=='password') this.placeholder='password';" 
+                %>
+                <%= submit_tag "Log in", class: "btn tiny" %>
+              <% end %>
 
-		</section>			
-	</div>
+		</div>
 </div>	
 <% end %>

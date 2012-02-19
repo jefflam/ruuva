@@ -1,0 +1,23 @@
+<ul class="thumbnails">
+	<li class="thumbnail">
+	<%= image_tag @collection.image_url(:event).to_s %>
+		<div class="caption">
+			<h5 class="collection"><%= @collection.name %></h5>
+			<p class="collection"><%= @collection.description %></p>
+		</div>
+	</li>
+	
+	<li class="well span4">	
+		<%= form_for @event do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+					<h2>Add an event for your collection!</h2>
+					<p><%= f.label :date, "Event Date" %></p>
+					<p><%= f.text_field :date %></p>
+					<p><%= f.label :time, "Event Time" %></p>
+					<p><%= f.text_field :time %></p>
+					<p><%= f.label :description, "Event Description (Max Length: 500)" %></p>
+					<p><%= f.text_field :description %></p>					
+					<p><%= f.submit "Add Event!", class: "btn btn-medium" %><p>
+		<% end %>
+	</li>
+</ul>

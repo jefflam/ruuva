@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 	before_filter :authenticate, except: [:show, :new, :create, :index]
 	before_filter :correct_user, only: [:edit, :update]
 	before_filter :admin_user, only: :destroy
+	before_filter :store_location, only: :shop
 
 	def new
 		@user = User.new
@@ -34,11 +35,7 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find(params[:id])
 		if @user.update_attributes(params[:user])
-			if @user.shop?
-				redirect_to shop_user_path(current_user)
-			else
-				redirect_to root_path
-			end
+			redirect_back_or root_path
 			flash[:success] = "Your have updated your settings successfully."
 		else
 			flash.now[:error] = "Sorry! We are unable to update your settings. Please check your fields and try again."
@@ -58,21 +55,21 @@ class UsersController < ApplicationController
 	end
 
 	def following
-		@title = "Following"
+		@title = "Shops or People You Are Following"
 		@user = User.find(params[:id])
 		@users = @user.following
 		render 'show_follow'
 	end
 
 	def followers
-		@title = "Followers"
+		@title = "Shops or People Following You"
 		@user = User.find(params[:id])
 		@users = @user.followers
 		render 'show_follow'
 	end	
 
 	def shop
-		@title = "My Shop"
+		@title = "My shop"
 		@user = User.find(params[:id])
 		@collection = Collection.new
 		@collections = @user.collections

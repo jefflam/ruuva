@@ -18,11 +18,11 @@
 
 				<%= form_for(@user) do |f| %>
 					<%= render 'shared/flash_notices' %>
-					<label><%= f.label :name %></label>
+					<label><%= f.label :name, "Name (Max Length: 50)" %></label>
 					<div class="input"><%= f.text_field :name %></div><br>
 					<label><%= f.label :email %></label>
 					<div class="input"><%= f.text_field :email %></div><br>
-					<label><%= f.label :password %></label>
+					<label><%= f.label :password, "Password (Min Length: 6)" %></label>
 					<div class="input"><%= f.password_field :password %></div><br>
 					<label><%= f.label :password_confirmation, "Password again" %></label>
 					<div class="input"><%= f.password_field :password_confirmation %></div>	<br>

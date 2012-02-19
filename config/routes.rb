@@ -1,25 +1,32 @@
 Ruuva::Application.routes.draw do
-  get "product/name:string"
-
-  get "product/description:string"
-
-  get "product/price:string"
-
-  get "product/likes:integer"
-
-  get "product/collection_id:integer"
-
   resources :users do
     member do
       get :following, :followers, :shop
     end
   end
 
+  resources :collections do
+    member do
+      get 'like'
+    end
+  end
+
+  resources :products do
+    member do
+      get 'like'
+    end
+  end
+
+  resources :events do
+    member do
+      get 'attending'
+    end
+  end
+
   resources :sessions,      only: [:new, :create, :destroy]
   resources :posts,         only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
-  resources :collections,   only: [:create, :destroy]
-
+  
   match '/about',       to: 'static_pages#about'
   match '/contact',     to: 'static_pages#contact'
   match '/terms',       to: 'static_pages#terms'

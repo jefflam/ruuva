@@ -1,8 +1,8 @@
-<div class="span8">
-	<h3>Heya! Anything new, lately?</h3>
+<div class="span4 well update-feed-box">
+	<h2>Hello! What's up?</h2>
 	<%= form_for @post do |f| %>
 		<%= render 'shared/error_messages', object: f.object %>
-		<div class="update-feed"><%= f.text_area :content, class: "span8 update-feed" %></div><br>
-		<div class="update-feed-btn"><%= f.submit "Post Update!", class: "btn btn-large" %></div>
+		<div class="update-feed"><%= f.text_area :content, class: "span4 update-feed" %></div><br>
+		<div class="update-feed-btn"><%= f.submit "Post Update!", class: "btn btn-medium" %></div>
 	<% end %>
 </div>

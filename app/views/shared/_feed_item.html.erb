@@ -1,5 +1,11 @@
-<div class="feed-item span8">
-	<div class="profilephoto"><%= gravatar_for feed_item.user, size: 48 %></div>
+<div class="feed-item span3 thumbnail">
+	<div class="profilephoto">
+		<% if feed_item.user.avatar? %>
+			<%= image_tag feed_item.user.avatar_url, class: "feed_avatar" %>
+		<% else %>
+			<%= gravatar_for feed_item.user, size: 48 %>
+		<% end %>
+	</div>
 	<div class="feed">
 		<div class="name"><%= link_to feed_item.user.name, feed_item.user %></div>
 		<div class="updates"><%= feed_item.content %></div>

@@ -18,8 +18,14 @@
 	<%= render 'shared/flash_notices' %>
 	<%= render 'collections/collection_feed' %>
 <% else %>
-	<div class="container headline">
-		<p>Your shop page is current not activated. Activate it in the 'settings' page to get all the awesome goodies!</p>
-		<p><%= link_to "Activate your shop now!", edit_user_path(current_user), class: "btn btn-large" %></p>
-	</div>
+	<% if current_user?(@user) %>
+		<div class="container headline">
+			<p>Your shop page is current not activated. Activate it in the 'settings' page to get all the awesome goodies!</p>
+			<p><%= link_to "Activate your shop now!", edit_user_path(current_user), class: "btn btn-large" %></p>
+		</div>
+	<% else %>
+		<div class="container headline">
+			<p>Sorry, but <%= @user.name %> has no shop or has deactivated his/her shop. :(</p>
+		</div>		
+	<% end %>
 <% end %>

@@ -12,6 +12,7 @@ gem 'jquery-rails', '2.0.0'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 
 group :development do
 	gem 'rspec-rails', '2.8.1'

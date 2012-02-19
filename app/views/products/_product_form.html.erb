@@ -1,0 +1,23 @@
+<% if current_user?(@user) %>
+	<%= form_for @product, html: { multipart: true } do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+		<li>
+			<div class="well">
+				<div class="caption">
+					<h2>Add a new product!</h2>
+					<p><%= f.label :product_image, "Product Picture (Max Size: 2mb)" %></p>
+					<p><%= f.file_field :product_image %></p>
+					<h5><%= f.label :name, "Product Name (Max Length: 100)" %></h5>
+					<h5><%= f.text_field :name %></h5>
+					<p><%= f.label :description, "Product Description (Max Length: 200)" %></p>
+					<p><%= f.text_field :description %></p>
+					<p><%= f.label :price, "(Optional) Price (Max Length: 10)" %></p>
+					<p><%= f.text_field :price %></p>					
+					<p><%= f.label :url, "(Optional) Enter URL Link (skip the 'http://') " %></p>
+					<p><%= f.text_field :url %></p>
+					<p><%= f.submit "Add Product!", class: "btn btn-medium" %><p>
+				</div>
+			</div>
+		</li>	
+	<% end %>
+<% end %>

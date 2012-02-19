@@ -1,0 +1,20 @@
+<ul class="breadcrumb">
+	<li>
+		<%= link_to @user.name, shop_user_path(@user) %> <span class="divider">/</span>
+	</li>
+	<li>
+		<%= link_to @collection.name, collection_path(@collection) %> <span class="divider">/</span>
+	</li>
+	<li class="active">
+		Products
+	</li>
+	<% unless @event.empty? %>
+		<span class="divider">/</span>
+		<li>This collection has an event! <%= link_to "View Event", event_path(@event_id), class: "btn btn-small btn-success" %></li>
+	<% else %>
+		<% if current_user?(@user) %>
+			<span class="divider">/</span>
+			<li>There is currently no event for this collection. Why not create an event? <%= link_to "Create Event", new_event_path, class: "btn btn-small btn-success" %></li>
+		<% end %>
+	<% end%>
+</ul>

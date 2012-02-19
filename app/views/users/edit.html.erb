@@ -7,11 +7,11 @@
 <%= form_for @user, html: { multipart: true } do |f| %>
 	<div class="control-group">
 		<%= image_tag (@user.avatar_url), class: "avatar" if @user.avatar? %>
-		<%= f.label :avatar, "Add/Edit your profile Picture" %>
+		<%= f.label :avatar, "Add/Edit your profile Picture (Max Size: 2 mb)" %>
 		<%= f.file_field :avatar %>
 	</div>
 	<div class="control-group">
-		<%= f.label :name %>
+		<%= f.label :name, "Name (Max Length: 50)" %>
 		<%= f.text_field :name %>
 	</div>
 	<div class="control-group">	
@@ -19,7 +19,7 @@
 		<%= f.text_field :email %>
 	</div>
 	<div class="control-group">
-		<%= f.label :user_bio, "Write a little bio/description of yourself or your shop" %>
+		<%= f.label :user_bio, "Write a little bio/description of yourself or your shop (Max Length: 200)" %>
 		<%= f.text_area :user_bio, class: "span5", rows: "4" %>
 	</div>
 	<div class="control-group">
@@ -28,14 +28,14 @@
 	</div>
 	<div class="control-group">
 		<%= image_tag @user.cover_photo_url, class: "cover_photo_preview" if @user.cover_photo? %>
-		<%= f.label :cover_photo, "Add a Cover Photo to Your Shop Page" %>
+		<%= f.label :cover_photo, "Add a Cover Photo to Your Shop Page (Max Size: 2mb)" %>
 		<%= f.file_field :cover_photo %>
 	</div>
 	<div class="alert alert-info span6">
 		<strong>Take note!</strong> You have to enter your passwords in the box below to proceed with any updates you have done in your settings page. You may also utilize the fields below to change your account password.
 	</div>
 	<div class="control-group">
-		<%= f.label :password %>
+		<%= f.label :password, "Password (Min Length: 6)" %>
 		<%= f.password_field :password, class: "focused" %>
 		<%= f.label :password_confirmation, "Password again" %>
 		<%= f.password_field :password_confirmation, class: "focused" %>

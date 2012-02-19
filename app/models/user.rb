@@ -15,12 +15,15 @@
 #  cover_photo     :string(255)
 #
 
+require 'file_size_validator'
 class User < ActiveRecord::Base
 	attr_accessible :name, :email, :password, :password_confirmation, :user_bio, 
 					:shop, :cover_photo, :avatar, :remote_image_url
 	has_secure_password
 	mount_uploader :cover_photo, ImageUploader
 	mount_uploader :avatar, ImageUploader
+
+	make_flagger
 
 	scope :shop, where(shop: true)
 
@@ -43,6 +46,9 @@ class User < ActiveRecord::Base
 						uniqueness: { case_sensitive: false }
 	validates :password, presence: true, length: { minimum: 6 }
 	validates :user_bio, length: { maximum: 200 }
+	validates :cover_photo,	file_size: { maximum: 2.megabytes.to_i }
+	validates :avatar,	file_size: { maximum: 2.megabytes.to_i }
+
 
 	def feed
 		Post.from_users_followed_by(self)
