@@ -7,3 +7,9 @@ $(document).ready ->
 	  $(".hover-buttons", this).css "display", "block"
 	).mouseout ->
 	  $(".hover-buttons", this).css "display", "none"	
+
+	$(".product-item").wookmark
+	  container: $(".wookmark")
+	  offset: 10
+	  itemWidth: 226
+	  autoResize: true	  

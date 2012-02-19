@@ -37,12 +37,12 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [1170, 400]
   end
 
-  version :product do
-    process resize_to_fill: [360, 505]
-  end
-
   version :event do
     process resize_to_fill: [550, 382]
+  end
+
+  version :product do
+    process resize_to_fit: [226, 316]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -55,6 +55,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
-  # end
+  # end 
 
 end

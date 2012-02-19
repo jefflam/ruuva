@@ -1,19 +1,28 @@
-<% if current_user == @user %>
-	<%= form_for @collection, html: { multipart: true } do |f| %>
-		<%= render 'shared/error_messages', object: f.object %>
-		<li>
-			<div class="well">
-				<div class="caption">
-					<h2>Add a new collection!</h2>
-					<p><%= f.label :image, "Collection Picture (Max Size: 2mb)" %></p>
-					<p><%= f.file_field :image %></p>
-					<h5><%= f.label :name, "Collection Name (Max Length: 100)" %></h5>
-					<h5><%= f.text_field :name %></h5>
-					<p><%= f.label :description, "Collection Description (Max Length: 200)" %></p>
-					<p><%= f.text_field :description %></p>
-					<p><%= f.submit "Add Collection!", class: "btn btn-medium" %><p>
+<% if current_user?(@user) %>
+	<div id="add-new-collection" class="modal hide fade">
+  		<div class="modal-header">
+  			<a class="close" data-dismiss="modal">x</a>
+  			<h3>Add a new collection!</h3>
+  		</div>
+	  	<div class="modal-body">
+		<%= form_for @collection, html: { multipart: true } do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+				<div class="well">
+					<div class="caption">
+						<h2>Add a new collection!</h2>
+						<p><%= f.label :image, "Collection Picture (Max Size: 2mb)" %></p>
+						<p><%= f.file_field :image %></p>
+						<h5><%= f.label :name, "Collection Name (Max Length: 100)" %></h5>
+						<h5><%= f.text_field :name %></h5>
+						<p><%= f.label :description, "Collection Description (Max Length: 200)" %></p>
+						<p><%= f.text_field :description %></p>
+						<p><%= f.submit "Add Collection!", class: "btn btn-medium" %><p>
+					</div>
 				</div>
-			</div>
-		</li>	
-	<% end %>
+		<% end %>
+	 	</div>
+		<div class="modal-footer">
+	  		<a href="#" class="btn" data-dismiss="modal">Close</a>
+	  	</div>
+	</div>
 <% end %>

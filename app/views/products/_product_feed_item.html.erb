@@ -1,5 +1,5 @@
 <% @products.each do |product| %>
-<li>
+<li class="product-item">
 	<div class="hover-buttons">	
 		<% if current_user?(@user) %>
 			<%= link_to "Delete", product, method: :delete,	confirm: "You sure?", title: product.name, class: "btn btn-small btn-danger" %>
@@ -9,23 +9,16 @@
 	</div>	
 	<% if product.url? %>
 		<a href="http://<%= product.url %>" target="_blank" class="thumbnail">
-			<%= image_tag product.product_image_url(:thumb).to_s %>
-			<div class="caption">
-				<h5 class="collection"><%= product.name %></h5>
-				<p class="collection"><%= product.description %></p>
-				<p class="collection"><%= product.price %></p>
-			</div>
-		</a>
-	<% else %>
+	<% else %>		
 		<a class="thumbnail">
-			<%= image_tag product.product_image_url(:thumb).to_s %>
+	<% end %>
+			<%= image_tag product.product_image_url(:product).to_s %>
 			<div class="caption">
 				<h5 class="collection"><%= product.name %></h5>
 				<p class="collection"><%= product.description %></p>
 				<p class="collection"><%= product.price %></p>
 			</div>
 		</a>
-	<% end %>
 </li>
 
 <div id="modal-<%= product.id %>" class="modal hide fade">
