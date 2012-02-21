@@ -9,6 +9,5 @@ class CreateEvents < ActiveRecord::Migration
     end
     add_index :events, :collection_id
     add_index :events, :date_time
-
   end
 end
