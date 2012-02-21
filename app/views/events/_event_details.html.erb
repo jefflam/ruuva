@@ -10,10 +10,8 @@
 	<li class="well span4">
 
 		<h2>Event for <%= @collection.name %></h2>
-		<h5>Event Date</h5>
-		<p><%= @event.date %></p>
-		<h5>Event Time</h5>
-		<p><%= @event.time %></p>
+		<h5>Event Date and Time</h5>
+		<p><%= @event.date_time %> Note: Singapore is +8 UTC</p>
 		<h5>Event Description</h5>
 		<p><%= @event.description %></p>
 		<p><%= toggle_attending_event_button(@event, current_user) %></p>

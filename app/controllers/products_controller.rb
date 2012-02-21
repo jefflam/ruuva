@@ -22,10 +22,11 @@ class ProductsController < ApplicationController
 	def create
 		set_collection_id
 		@product = @collection.products.build(params[:product]) 
-		# @post = Post.new
+		# also auto post update to wall with product name and product description
+		@post = current_user.posts
 		if @product.save
 			flash[:success] = "New product added."
-			# @post = Post.new(message: "Added a product (name) to so and so collection, show image")
+			@post.build(content: "New product added: #{@product.name} to collection #{@collection.name}. Description: #{@product.description}").save
 			redirect_to collection_path(session[:collection_id])
 		else
 			flash[:error] = "Sorry, there seems to be an error adding your product. Why don't you try again?"

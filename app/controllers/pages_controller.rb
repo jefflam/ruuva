@@ -8,6 +8,11 @@ class PagesController < ApplicationController
 		if current_user
 			@post = Post.new
 			@feed_items = current_user.feed
+
+			@user_following = @user.following
+			@user_followers = @user.followers
+
+			@events_attending = @user.flaggings.with_flag(:attending)
 		end
 	end
 

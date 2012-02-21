@@ -20,7 +20,6 @@ class Collection < ActiveRecord::Base
 	mount_uploader :image, ImageUploader
 	make_flaggable :like
 
-
 	validates :name, 		presence: true, length: { maximum: 100 }
 	validates :description, presence: true, length: { maximum: 200 }
 	validates :image,		presence: true 

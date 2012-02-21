@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="centralize">
+    <%= image_tag 'ruuvalogo.png' %>
+    <%= image_tag 'ruuvacaption.png' %>
+    <%= image_tag 'signupnow.png' %>
+  </div>
+  <div class="centralize">
+    <%= image_tag 'orlogin.png' %>
+	<%= render 'shared/flash_notices' %>
+    <%= form_tag sessions_path do  %>
+     		<%= text_field_tag :email, params[:email], 
+        		class: "input-medium", 
+        		placeholder: "email", 
+        		onclick: "if(this.placeholder=='email') this.placeholder=' ';", 
+       		 onblur: "if(this.placeholder!=='email') this.placeholder='email';" 
+      	%>
+      	<%= password_field_tag :password, params[nil],
+	        class: "input-medium",
+	        placeholder: "password",
+	        onclick: "if(this.placeholder=='password') this.placeholder=' ';", 
+	        onblur: "if(this.placeholder!=='password') this.placeholder='password';" 
+      	%>
+      <%= submit_tag "Log in", class: "btn tiny" %>
+    <% end %>
+  </div>
+</div>

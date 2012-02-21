@@ -169,6 +169,7 @@ DEPENDENCIES
   factory_girl_rails (= 1.0)
   faker (= 0.3.1)
   jquery-rails (= 2.0.0)
+  mail
   make_flaggable!
   mini_magick
   pg

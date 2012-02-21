@@ -37,7 +37,10 @@ class EventsController < ApplicationController
 
 	def create
 		@event = @collection.events.build(params[:event])
+		# also auto post update to wall with collection name and collection description
+		@post = current_user.posts
 		if @event.save
+			@post.build(content: "New event added to collection: #{@collection.name}. It's happening on #{@event.date} at #{@event.time}.").save	
 			flash[:success] = "New event added."
 			redirect_to shop_user_path(current_user)
 		else

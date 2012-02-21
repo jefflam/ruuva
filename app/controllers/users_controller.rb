@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
 		if @user.save
+  			UserMailer.registration_mail(@user).deliver
   			session[:user_id] = @user.id
   			@user.follow!(User.find(1))
 			redirect_to root_path

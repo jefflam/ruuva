@@ -1,3 +1,44 @@
-<div class="span7 thumbnail">
-	<h3>User Statistics</h3>
+<div class="span7 thumbnail user-statistics">
+	<div class="span2 following">
+		<h3>Following (<%= link_to @user_following.count, following_user_path(@user) %>)</h3>
+		<% unless @user_following.empty? %>
+			<% @user_following.each do |user| %>
+			      <% if user.avatar? %>
+                    <%= image_tag user.avatar_url, class: "profilephoto" %>
+                  <% else %>
+                    <%= gravatar_for user, size: 30, type: "profilephoto" %>
+                  <% end %>
+            <% end %>
+		<% end %>
+	</div>
+	<div class="span2 followers">
+		<h3>Followers (<%= link_to @user_followers.count, followers_user_path(@user) %>)</h3>
+		<% unless @user_followers.empty? %>
+			<% @user_followers.each do |user| %>
+			      <% if user.avatar? %>
+                    <%= image_tag user.avatar_url, class: "profilephoto" %>
+                  <% else %>
+                    <%= gravatar_for user, size: 30, type: "profilephoto" %>
+                  <% end %>
+            <% end %>
+		<% end %>
+	</div>	
+	<div class="span3 events">
+		<h3>Events</h3>
+		<% if @events_attending.empty? %>
+			<p>You are currently not attending any events.</p>
+		<% else %>
+			<p>You are attending these events:</p>
+			<ol>
+				<% @events_attending.each do |e| %>
+						<% unless Event.find_by_id(e.flaggable_id).nil? %>						
+						<li>
+							Collection: <%= link_to Collection.find(Event.find(e.flaggable_id).collection_id).name, event_path(e.flaggable_id) %>
+							<br>happening on: <%= Event.find(e.flaggable_id).date_time %>
+						</li>
+						<% end %>
+				<% end %>
+			</ol>
+		<% end %>
+	</div>
 </div>
