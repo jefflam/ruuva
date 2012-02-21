@@ -34,7 +34,7 @@
 						<% unless Event.find_by_id(e.flaggable_id).nil? %>						
 						<li>
 							Collection: <%= link_to Collection.find(Event.find(e.flaggable_id).collection_id).name, event_path(e.flaggable_id) %>
-							<br>happening on: <%= Event.find(e.flaggable_id).date_time %>
+							<br>happening on: <%= Event.find(e.flaggable_id).date_time.in_time_zone("Singapore") %>
 						</li>
 						<% end %>
 				<% end %>

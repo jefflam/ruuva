@@ -10,10 +10,10 @@
 		<%= form_for @event do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
 					<h2>Add an event for your collection!</h2>
-					<p><%= f.label :date_time, "Event Date and Time" %></p>
+					<p><%= f.label :date_time, "Event Date(Yr/Mth/Day) and Time(Hour/Minutes in SGT)" %></p>
 					<p><%= f.datetime_select :date_time %></p>
 					<p><%= f.label :description, "Event Description (Max Length: 500)" %></p>
-					<p><%= f.text_field :description %></p>					
+					<p><%= f.text_area :description, class: "span4", rows: "4" %></p>					
 					<p><%= f.submit "Add Event!", class: "btn btn-medium" %><p>
 		<% end %>
 	</li>
