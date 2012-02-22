@@ -1,0 +1,20 @@
+<ul class="thumbnails">
+	<li class="thumbnail">
+	<%= image_tag @collection.image_url(:event).to_s %>
+		<div class="caption">
+			<h5 class="collection"><%= @collection.name %></h5>
+			<p class="collection"><%= @collection.description %></p>
+		</div>
+	</li>
+	<li class="well span4">	
+		<%= form_for @event do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+					<h2>Edit your event's info:</h2>
+					<p><%= f.label :date_time, "Event Date(Yr/Mth/Day) and Time(Hour/Minutes in SGT)" %></p>
+					<p><%= f.datetime_select :date_time %></p>
+					<p><%= f.label :description, "Event Description (Max Length: 500)" %></p>
+					<p><%= f.text_area :description, class: "span4", rows: "4" %></p>					
+					<p><%= f.submit "Edit Event", class: "btn btn-medium" %><p>
+		<% end %>
+	</li>
+</ul>

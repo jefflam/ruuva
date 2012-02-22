@@ -1,15 +1,16 @@
 <% @collections.each do |collection| %>
 <li>
 	<div class="hover-buttons">
-		<% if current_user?(@user) %>
+		<% if current_user?(@user) || current_user.admin? %>
 			<%= link_to "Delete", collection, method: :delete,	confirm: "You sure?", title: collection.name, class: "btn btn-small btn-danger" %>
+			<%= link_to "Edit", edit_collection_path, class: "btn btn-small" %>
 		<% end %>
 		<a href="#modal-<%= collection.id %>" data-toggle="modal" data-target="#modal-<%= collection.id %>" class="btn btn-small">Expand</a>
+		<%= toggle_like_collection_button(collection, current_user) %>		
 		<% unless collection.events.empty? %>
-			<div class="btn btn-small btn-success">Event</div>
+			<span class="label label-info">Event!</span>
 		<% else %>
 		<% end %>
-		<%= toggle_like_collection_button(collection, current_user) %>
 		<!-- add like count somewhere here, but .flaggings command not working -->
 	</div>	
 	<%= link_to(collection_path(collection), class: "thumbnail") do %>
@@ -34,7 +35,4 @@
     <a href="#" class="btn" data-dismiss="modal">Close</a>
   </div>
 </div>
-
-
-
 <% end %>

@@ -3,8 +3,5 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready ->
-	$(".feed-item").wookmark
-	  container: $(".wookmark")
-	  offset: 25
-	  itemWidth: 270
-	  autoResize: true
+  $("#masonry").masonry
+    itemSelector: ".feed-item"

@@ -1,0 +1,18 @@
+<h3>Edit collection!</h3>
+<%= form_for @collection, html: { multipart: true } do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+		<div class="well">
+			<div class="caption">
+				<h2>Add a new collection!</h2>
+				<p><%= f.label :image, "Collection Picture (Max Size: 2mb)" %></p>
+				<p><%= f.file_field :image %></p>
+				<p><%= f.label :product_image, "or enter your photo's URL (you MUST include http://)" %></p>
+				<p><%= f.text_field :remote_image_url %></p>						
+				<h5><%= f.label :name, "Collection Name (Max Length: 100)" %></h5>
+				<h5><%= f.text_field :name %></h5>
+				<p><%= f.label :description, "Collection Description (Max Length: 200)" %></p>
+				<p><%= f.text_field :description %></p>
+				<p><%= f.submit "Edit Collection!", class: "btn btn-medium" %><p>
+			</div>
+		</div>
+<% end %>

@@ -15,8 +15,9 @@
 		<h5>Event Description</h5>
 		<p><%= @event.description %></p>
 		<p><%= toggle_attending_event_button(@event, current_user) %></p>
-		<% if current_user?(@user) %>
-		<p><%= link_to "Cancel Event", @event, method: :delete, confirm: "You sure?", class: "btn btn-small btn-danger" %></p>
+		<% if current_user?(@user) || current_user.admin? %>
+			<p><%= link_to "Edit", edit_event_path(@event), class: "btn btn-small" %></p>
+			<p><%= link_to "Cancel Event", @event, method: :delete, confirm: "You sure?", class: "btn btn-small btn-danger" %></p>
 		<% end %>
 
 	</li>

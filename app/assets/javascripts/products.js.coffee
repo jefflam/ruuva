@@ -3,13 +3,11 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready ->
-	$("li").mouseover(->
+	$(".product-item").mouseover(->
 	  $(".hover-buttons", this).css "display", "block"
 	).mouseout ->
 	  $(".hover-buttons", this).css "display", "none"	
 
-	$(".product-item").wookmark
-	  container: $(".wookmark")
-	  offset: 10
-	  itemWidth: 226
-	  autoResize: true	  
+$container = $("#masonry")
+$container.imagesLoaded ->
+  $container.masonry itemSelector: ".product-item"

@@ -9,6 +9,8 @@
 		<%= image_tag (@user.avatar_url), class: "avatar" if @user.avatar? %>
 		<%= f.label :avatar, "Add/Edit your profile Picture (Max Size: 2 mb)" %>
 		<%= f.file_field :avatar %>
+		<%= f.label :product_image, "or enter your photo's URL (you MUST include http://)" %>
+		<%= f.text_field :remote_avatar_url %>
 	</div>
 	<div class="control-group">
 		<%= f.label :name, "Name (Max Length: 50)" %>

@@ -47,9 +47,25 @@ class CollectionsController < ApplicationController
 
 	def destroy
 		@collection = current_user.collections.find_by_id(params[:id])
-		@collection.destroy
+		@collection.delete
 		flash[:success] = "Collection deleted."
 		redirect_to shop_user_path(current_user)
+	end
+
+	def edit
+		@collection = current_user.collections.find_by_id(params[:id])
+		@user = current_user
+	end
+
+	def update
+		@collection = Collection.find(params[:id])
+		if @collection.update_attributes(params[:collection])
+			redirect_back_or root_path
+			flash[:success] = "Your have updated your collection details successfully."
+		else
+			flash.now[:error] = "Sorry! We are unable to update your collection details. Please check your fields and try again."
+			render 'edit'
+		end		
 	end
 
 	private

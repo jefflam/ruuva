@@ -1,14 +1,14 @@
 <% @products.each do |product| %>
-<li class="product-item">
+<div class="product-item">
 	<div class="hover-buttons">	
-		<% if current_user?(@user) %>
+		<% if current_user?(@user) || current_user.admin? %>
 			<%= link_to "Delete", product, method: :delete,	confirm: "You sure?", title: product.name, class: "btn btn-small btn-danger" %>
 		<% end %>				
 		<a href="#modal-<%= product.id %>" data-toggle="modal" data-target="#modal-<%= product.id %>" class="btn btn-small">Expand</a>
 		<%= toggle_like_product_button(product, current_user) %>
 	</div>	
 	<% if product.url? %>
-		<a href="http://<%= product.url %>" target="_blank" class="thumbnail">
+		<a href="<%= product.url %>" target="_blank" class="thumbnail">
 	<% else %>		
 		<a class="thumbnail">
 	<% end %>
@@ -19,7 +19,7 @@
 				<p class="collection"><%= product.price %></p>
 			</div>
 		</a>
-</li>
+</div>
 
 <div id="modal-<%= product.id %>" class="modal hide fade">
 	<div class="modal-header">

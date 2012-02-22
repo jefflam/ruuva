@@ -18,7 +18,7 @@
 require 'file_size_validator'
 class User < ActiveRecord::Base
 	attr_accessible :name, :email, :password, :password_confirmation, :user_bio, 
-					:shop, :cover_photo, :avatar, :remote_image_url
+					:shop, :cover_photo, :avatar, :remote_avatar_url
 	has_secure_password
 	mount_uploader :cover_photo, ImageUploader
 	mount_uploader :avatar, ImageUploader

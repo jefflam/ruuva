@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-	before_filter :authenticate, only: [:create, :destroy]
-	before_filter :set_collection_id, only: [:create, :destroy]
+	before_filter :authenticate, except: :like
+	before_filter :set_collection_id, except: :like
 
 	def like
 		@user = current_user
@@ -35,7 +35,6 @@ class ProductsController < ApplicationController
 	end
 
 	def destroy
-		# set_collection_id
 		@product = @collection.products.find_by_id(params[:id])
 		@product.delete
 		flash[:success] = "Product deleted."

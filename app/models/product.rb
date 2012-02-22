@@ -15,7 +15,7 @@
 
 require 'file_size_validator'
 class Product < ActiveRecord::Base
-	attr_accessible :name, :description, :price, :product_image, :remote_image_url, :url
+	attr_accessible :name, :description, :price, :product_image, :remote_product_image_url, :url
 	belongs_to :collection
 	mount_uploader :product_image, ImageUploader
 	make_flaggable :like

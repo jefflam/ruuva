@@ -55,4 +55,24 @@ class EventsController < ApplicationController
 		flash[:info] = "Event cancelled."
 		redirect_to shop_user_path(current_user)
 	end
+
+	def edit
+		@event = Event.find(params[:id])
+		@collection_id = @event.collection_id
+		@collection = Collection.find(@collection_id)
+		@user_id = @collection.user_id
+		@user = User.find(@user_id)				
+		@title = "Edit your event's details."
+	end
+
+	def update
+		@event = Event.find(params[:id])
+		if @event.update_attributes(params[:event])
+			redirect_back_or root_path
+			flash[:success] = "Your have updated your event details successfully."
+		else
+			flash.now[:error] = "Sorry! We are unable to update your event details. Please check your fields and try again."
+			render 'edit'
+		end
+	end	
 end
