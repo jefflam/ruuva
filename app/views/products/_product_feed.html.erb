@@ -1,4 +1,6 @@
-<div id="masonry" class="margin-right thumbnails">
-	<%= render 'products/product_feed_item' %>
-	<%= render 'products/product_form' %>
+<div id="masonry-product" class="margin-right thumbnails">
+	<% unless @products.empty? %>
+		<%= render partial: 'products/product', collection: @products %>
+	<% end %>		
 </div>
+<%= render 'products/product_form' %>

@@ -3,5 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready ->
-  $("#masonry").masonry
-    itemSelector: ".feed-item"
+	$container = $("#masonry-home")
+	$container.imagesLoaded ->
+	  $container.masonry itemSelector: ".feed-item"

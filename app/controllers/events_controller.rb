@@ -51,6 +51,12 @@ class EventsController < ApplicationController
 
 	def destroy
 		@event = Event.find(params[:id])
+		@users = User.all
+		@users.each do |u|
+			if u.flagged?(@event, :attending)
+				u.unflag(@event, :attending)
+			end
+		end
 		@event.delete
 		flash[:info] = "Event cancelled."
 		redirect_to shop_user_path(current_user)

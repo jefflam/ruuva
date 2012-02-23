@@ -16,7 +16,7 @@
 	</li>			
 	<% unless @event.empty? %>
 		<li class="pull-right">
-			<%= link_to "View Collection's Event!", event_path(@event_id), class: "btn btn-small btn-info breadcrumb-btn breadcrumb-btn-left" %>
+			<%= link_to "View Collection's Event!", event_path(@event_id), class: "btn btn-small btn-primary breadcrumb-btn breadcrumb-btn-left" %>
 		</li>
 	<% else %>
 		<% if current_user?(@user) %>

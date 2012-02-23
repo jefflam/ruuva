@@ -1,27 +1,11 @@
 <div class="span7 thumbnail user-statistics">
 	<div class="span2 following">
 		<h3>Following (<%= link_to @user_following.count, following_user_path(@user) %>)</h3>
-		<% unless @user_following.empty? %>
-			<% @user_following.each do |user| %>
-			      <% if user.avatar? %>
-                    <%= image_tag user.avatar_url, class: "profilephoto" %>
-                  <% else %>
-                    <%= gravatar_for user, size: 30, type: "profilephoto" %>
-                  <% end %>
-            <% end %>
-		<% end %>
+		<%= render 'shared/user_statistics_following' %>
 	</div>
 	<div class="span2 followers">
 		<h3>Followers (<%= link_to @user_followers.count, followers_user_path(@user) %>)</h3>
-		<% unless @user_followers.empty? %>
-			<% @user_followers.each do |user| %>
-			      <% if user.avatar? %>
-                    <%= image_tag user.avatar_url, class: "profilephoto" %>
-                  <% else %>
-                    <%= gravatar_for user, size: 30, type: "profilephoto" %>
-                  <% end %>
-            <% end %>
-		<% end %>
+		<%= render 'shared/user_statistics_followers' %>
 	</div>	
 	<div class="span3 events">
 		<h3>Events</h3>
