@@ -18,7 +18,8 @@ class UsersController < ApplicationController
 			redirect_to root_path
 			flash[:success] = "Signed up!"
 		else
-			render "new"
+			flash[:error] = "Sorry, there seems to be an error with your sign up... please try again!"
+			redirect_to signup_path
 		end  	
 	end
 

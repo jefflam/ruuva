@@ -1,35 +1,25 @@
-<div class="containertop">
-	<div class="row" id="home">
-		<section id="caption" class="page-header">
-			<h1>
-				Ruuva makes online shopping simpler and more socialble. Sign up in 10 seconds for free!
-			</h1>
-			<div id="signupform">
-				<div id="signupformleft">
-					Reasons to sign up
-				</div>
-				<div id="signupformright">
-					<div id="fbloginbtn">
-						<a href="#">
-							<div class="fbloginbtn"></div>
-						</a>
-					</div>
-				<div id="signupor">––––– or –––––</div>
+<div class="container">
+  <div class="centralize">
+    <%= image_tag 'ruuvalogo.png' %><br>
+    <%= image_tag 'signupnow.png' %>
+  </div>
+  <div class="centralize">
+  	<div class="fbloginbtn"></div>
+    <%= image_tag 'or.png' %>
+	<%= form_for(@user) do |f| %>
+		<%= render 'shared/flash_notices' %>
+		<label><%= f.label :name, "Name (Max Length: 50)" %></label>
+		<div class="input"><%= f.text_field :name %></div>
+		<label><%= f.label :email %></label>
+		<div class="input"><%= f.text_field :email %></div>
+		<label><%= f.label :password, "Password (Min Length: 6)" %></label>
+		<div class="input"><%= f.password_field :password %></div>
+		<label><%= f.label :password_confirmation, "Password again" %></label>
+		<div class="input"><%= f.password_field :password_confirmation %></div>
+		<div class="submitbutton"><%= f.submit "Sign Me Up!", class: "btn btn-large btn-success" %></div>
+	<% end %>		
+  </div>
+</div>
 
-				<%= form_for(@user) do |f| %>
-					<%= render 'shared/flash_notices' %>
-					<label><%= f.label :name, "Name (Max Length: 50)" %></label>
-					<div class="input"><%= f.text_field :name %></div><br>
-					<label><%= f.label :email %></label>
-					<div class="input"><%= f.text_field :email %></div><br>
-					<label><%= f.label :password, "Password (Min Length: 6)" %></label>
-					<div class="input"><%= f.password_field :password %></div><br>
-					<label><%= f.label :password_confirmation, "Password again" %></label>
-					<div class="input"><%= f.password_field :password_confirmation %></div>	<br>
-					<div class="submitbutton"><%= f.submit "Sign Me Up!", class: "btn btn-primary large" %></div>
-				<% end %>			
-				</div>
-			</div>
-		</section>			
-	</div>
-</div>	
+	
+

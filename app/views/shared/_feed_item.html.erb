@@ -26,7 +26,7 @@
 			<p class="feed-content"><%= feed_item.content %></p>
 			<p class="timestamp">
 				Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
-				<% if current_user==feed_item.user %>
+				<% if current_user?(feed_item.user) %>
 					<%= link_to "Delete", feed_item, method: :delete, 
 												confirm: "You sure?", 
 												title: feed_item.content %>

@@ -27,6 +27,10 @@ Ruuva::Application.routes.draw do
   resources :posts,         only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   
+  # Omniauth Matched Routes
+  match '/auth/:provider/callback', to: 'sessions#create_facebook_auth'
+  match '/auth/failure', to: 'sessions#new'
+
   match '/about',       to: 'static_pages#about'
   match '/contact',     to: 'static_pages#contact'
   match '/terms',       to: 'static_pages#terms'

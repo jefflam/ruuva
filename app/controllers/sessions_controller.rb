@@ -14,6 +14,11 @@ class SessionsController < ApplicationController
   	end
   end
 
+  def create_facebook_auth
+    auth_hash = request.env['omniauth.auth']
+    render :text => auth_hash.inspect
+  end
+
   def destroy
   	session[:user_id] = nil
   	redirect_to root_url, notice: "Logged out."

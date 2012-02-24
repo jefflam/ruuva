@@ -35,8 +35,22 @@ footer {
 	border-top:1px solid #ccc;
 	margin-top:20px;
 	padding-top:10px;
+	font-size:11px;
 }
 
 /* Home Page Call to Action */
 
 .centralize { text-align:center; }
+
+.fbloginbtn {
+	background:url(<%= asset_path 'fbloginbtn.png' %>);
+	width:225px;
+	height:39px;	
+	margin:0 auto;	
+}
+	.fbloginbtn:hover {
+		background-position:0px -42px;
+	}
+	.fbloginbtn:active {
+		background-position:0px -84px;
+	}
