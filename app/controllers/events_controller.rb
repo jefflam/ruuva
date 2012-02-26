@@ -40,7 +40,8 @@ class EventsController < ApplicationController
 		# also auto post update to wall with collection name and collection description
 		@post = current_user.posts
 		if @event.save
-			@post.build(content: "New event added to collection: #{@collection.name}. It's happening at #{@event.date_time.in_time_zone("Singapore")}.").save	
+			@post.build(content: "New event added to collection: #{@collection.name}. It's happening at #{@event.date_time.in_time_zone("Singapore")}.",
+						image_url: @collection.image_url(:product).to_s).save	
 			flash[:success] = "New event added."
 			redirect_to shop_user_path(current_user)
 		else

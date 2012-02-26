@@ -7,10 +7,11 @@
 #  user_id    :integer
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
+#  image_url  :string(255)
 #
 
 class Post < ActiveRecord::Base
-	attr_accessible :content
+	attr_accessible :content, :image_url
 	belongs_to :user
 
 	validates :content, presence: true, length: { maximum: 500 }

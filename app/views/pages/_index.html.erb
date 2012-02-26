@@ -1,12 +1,14 @@
 <div class="container">
   <div class="centralize">
-    <%= image_tag 'ruuvalogo.png' %>
+    <%= link_to image_tag('ruuvalogo.png'), root_path %><br>
     <%= image_tag 'ruuvacaption.png' %>
     <%= link_to image_tag('signupnow.png'), signup_path %>
   </div>
   <div class="centralize">
     <%= image_tag 'orlogin.png' %>
-	<%= render 'shared/flash_notices' %>
+	  <%= render 'shared/flash_notices' %>
+    <a href="/auth/facebook"><div class="fbloginbtn"></div></a>
+    <%= image_tag 'or.png' %>
     <%= form_tag sessions_path do  %>
      		<%= text_field_tag :email, params[:email], 
         		class: "input-medium", 

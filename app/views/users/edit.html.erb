@@ -33,17 +33,16 @@
 		<%= f.label :cover_photo, "Add a Cover Photo to Your Shop Page (Max Size: 2mb)" %>
 		<%= f.file_field :cover_photo %>
 	</div>
-	<div class="alert alert-info span6">
-		<strong>Take note!</strong> You have to enter your passwords in the box below to proceed with any updates you have done in your settings page. You may also utilize the fields below to change your account password.
-	</div>
-	<div class="control-group">
-		<%= f.label :password, "Password (Min Length: 6)" %>
-		<%= f.password_field :password, class: "focused" %>
-		<%= f.label :password_confirmation, "Password again" %>
-		<%= f.password_field :password_confirmation, class: "focused" %>
-	</div>
+	<% if @user.authentications.empty? %>
+		<div class="control-group">
+			<%= f.label :password, "Change Password (Min Length: 6)" %>
+			<%= f.password_field :password %>
+			<%= f.label :password_confirmation, "New Password again" %>
+			<%= f.password_field :password_confirmation %>
+		</div>
+	<% end %>
 	<div class="form-actions">
-		<%= f.submit "Update Changes", class: "btn btn-primary btn-large" %>
+		<%= f.submit "Update Changes", class: "btn btn-success btn-large" %>
 	</div>
 <% end %>	
 

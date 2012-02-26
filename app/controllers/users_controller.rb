@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
-		@title = "Sign up!"
+		@title = "Sign up for Ruuva!"
 	end
 
 	def create
@@ -14,9 +14,9 @@ class UsersController < ApplicationController
 		if @user.save
   			UserMailer.registration_mail(@user).deliver
   			session[:user_id] = @user.id
-  			@user.follow!(User.find(1))
+  			@user.follow!(User.find(1)) # Follow Ruuva Team's Account by default
+			flash[:success] = "Hello there! You've successfully signed up for Ruuva!"  			
 			redirect_to root_path
-			flash[:success] = "Signed up!"
 		else
 			flash[:error] = "Sorry, there seems to be an error with your sign up... please try again!"
 			redirect_to signup_path
@@ -31,12 +31,12 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
-		@title = "Your Account Settings"
+		@title = "Edit Your Account Settings"
 	end
 
 	def update
 		@user = User.find(params[:id])
-		if @user.update_attributes(params[:user])
+		if @user.update_attributes(params[:user]) 
 			redirect_back_or root_path
 			flash[:success] = "Your have updated your settings successfully."
 		else
@@ -71,8 +71,8 @@ class UsersController < ApplicationController
 	end	
 
 	def shop
-		@title = "My shop"
-		@user = User.find(params[:id])
+		@user = User.find(params[:id])		
+		@title = @user.name
 		@collection = Collection.new
 		@collections = @user.collections
 		render 'shop'

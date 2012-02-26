@@ -36,7 +36,8 @@ class CollectionsController < ApplicationController
 		# also auto post update to wall with collection name and collection description
 		@post = current_user.posts
 		if @collection.save
-			@post.build(content: "New collection added: #{@collection.name}. Description: #{@collection.description}").save
+			@post.build(content: "New collection added: #{@collection.name}. Description: #{@collection.description}",
+						image_url: @collection.image_url(:product).to_s).save
 			flash[:success] = "New collection added."
 			redirect_to shop_user_path(current_user)
 		else

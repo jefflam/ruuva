@@ -1,10 +1,9 @@
 <div class="container">
   <div class="centralize">
-    <%= image_tag 'ruuvalogo.png' %><br>
-    <%= image_tag 'signupnow.png' %>
+    <%= link_to image_tag('ruuvalogo.png'), root_path %><br>
   </div>
   <div class="centralize">
-  	<div class="fbloginbtn"></div>
+  	<a href="/auth/facebook"><div class="fbloginbtn"></div></a>
     <%= image_tag 'or.png' %>
 	<%= form_for(@user) do |f| %>
 		<%= render 'shared/flash_notices' %>

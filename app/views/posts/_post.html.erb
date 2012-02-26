@@ -1,6 +1,8 @@
 <div class="feed-item thumbnail-feed">
-	<!-- Show Photos of Relevant Collections, Products and Events in Future <img src="http://placehold.it/226x316.png" />
-	<div class="clear"></div> -->
+	<% unless post.image_url.nil? %>
+		<img src="<%= post.image_url %>" />
+		<div class="clear"></div>
+	<% end %>
 	<div class="caption">
 		<p class="feed-avatar">
 			<% if @user.shop? %>

@@ -1,10 +1,19 @@
-<h1>Login to Ruuva</h1>
-<%= render 'shared/flash_notices' %>
-<%= form_tag sessions_path do  %>
-	<label><%= label_tag :email %></label>
-	<div class="input"><%= text_field_tag :email, params[:email] %></div><br>
-	<label><%= label_tag :password %></label>
-	<div class="input"><%= password_field_tag :password %></div><br>
-	<div class="submitbutton"><%= submit_tag "Log in", class: "btn primary large" %></div>
-<% end %>
-No account? <%= link_to "Create your account in 30 seconds for free!", signup_path %>
+<div class="container">
+  <div class="centralize">
+    <%= link_to image_tag('ruuvalogo.png'), root_path %><br>
+    <h1>Login to Ruuva!</h1><br>
+  </div>
+  <div class="centralize">
+  	<div class="fbloginbtn"></div>
+    <%= image_tag 'or.png' %>
+	<%= render 'shared/flash_notices' %>
+	<%= form_tag sessions_path do  %>
+		<label><%= label_tag :email, "Enter your email address..." %></label>
+		<div class="input"><%= text_field_tag :email, params[:email] %></div><br>
+		<label><%= label_tag :password, "...and password" %></label>
+		<div class="input"><%= password_field_tag :password %></div><br>
+		<div class="submitbutton"><%= submit_tag "Log in", class: "btn btn-large btn-success" %></div>
+	<% end %>
+	No account? <%= link_to "Create your account in 30 seconds for free!", signup_path %>	
+  </div>
+</div>

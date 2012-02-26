@@ -26,7 +26,8 @@ class ProductsController < ApplicationController
 		@post = current_user.posts
 		if @product.save
 			flash[:success] = "New product added."
-			@post.build(content: "New product added: #{@product.name} to collection #{@collection.name}. Description: #{@product.description}").save
+			@post.build(content: "New product added: #{@product.name} to collection #{@collection.name}. Description: #{@product.description}",
+						image_url: @product.product_image_url(:product).to_s).save
 			redirect_to collection_path(session[:collection_id])
 		else
 			flash[:error] = "Sorry, there seems to be an error adding your product. Why don't you try again?"

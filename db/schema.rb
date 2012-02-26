@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221040301) do
+ActiveRecord::Schema.define(:version => 20120224165859) do
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "collections", :force => true do |t|
     t.string   "name"
@@ -54,8 +62,10 @@ ActiveRecord::Schema.define(:version => 20120221040301) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "image_url"
   end
 
+  add_index "posts", ["image_url"], :name => "index_posts_on_image_url"
   add_index "posts", ["user_id", "created_at"], :name => "index_posts_on_user_id_and_created_at"
 
   create_table "products", :force => true do |t|

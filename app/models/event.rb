@@ -19,10 +19,9 @@ class Event < ActiveRecord::Base
 	validates :description, length: { maximum: 500 }
 	validates :collection_id, presence: true
 
-	# code not working; --trace says uninitialized constant Event
-	def self.delete_events
-		@events_delete = Event.all(conditions: ["date_time < ?", Time.now - 6.hours])
-		@events_delete.each do |event|
+	def self.delete_expired_events
+		events_expired = Event.all(conditions: ["date_time < ?", Time.now - 6.hours])
+		events_expired.each do |event|
 			puts "deleted" if event.delete
 		end
 	end
