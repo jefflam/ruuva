@@ -1,4 +1,4 @@
-<div class="feed-item thumbnail-feed">
+<div class="feed-item thumbnail-feed thumbnail">
 	<% unless post.image_url.nil? %>
 		<img src="<%= post.image_url %>" />
 		<div class="clear"></div>
@@ -23,7 +23,7 @@
 				<% end %>
 			<% end %>
 		</p>	
-		<div class="feed-update thumbnail">
+		<div class="feed-update">
 			<h5 class="feed-name"><%= link_to @user.name, @user %></h5>
 			<p class="feed-content"><%= post.content %></p>
 			<p class="timestamp">
