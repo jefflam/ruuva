@@ -9,12 +9,8 @@
 		<%= link_to(user, class: "thumbnail") do %>
 			<%= gravatar_for(user, size:190) %>
 			<div class="caption">
-				<h5>
-					<%= user.name %>
-				</h5>
-				<p>
-					Insert Category Tags Here
-				</p>
+				<h5><%= user.name %></h5>
+				<!-- <p>Insert Category Tags Here</p> -->
 			</div>
 		<% end %>			
 	</li>
