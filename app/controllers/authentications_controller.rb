@@ -20,6 +20,7 @@ class AuthenticationsController < ApplicationController
 	    user.save(validate: false)
   		UserMailer.registration_mail(user).deliver # send welcome mail 
      	session[:user_id] = user.id
+     	user.follow!(User.find(1))
 		flash[:success] = "Hello there! You've successfully logged in for Ruuva with your Facebook account!" 
 		redirect_to root_path
 	  end

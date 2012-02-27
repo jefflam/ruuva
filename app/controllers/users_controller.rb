@@ -54,6 +54,7 @@ class UsersController < ApplicationController
 	def index
 		@user = current_user
 		@users = User.all
+		@title = "Ruuva Marketplace"
 	end
 
 	def following

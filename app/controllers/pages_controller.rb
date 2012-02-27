@@ -4,6 +4,7 @@ class PagesController < ApplicationController
  
 	def home
 		@title = "Ruuva | Online Shopping Eyecandy"
+		@meta_description = "Ruuva satisfies your online social shopping eyecandy needs."
 		@user = current_user
 		if current_user
 			@post = Post.new
