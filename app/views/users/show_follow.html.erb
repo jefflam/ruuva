@@ -7,7 +7,23 @@
 	<% @users.each do |user| %>
 	<li>	
 		<%= link_to(user, class: "thumbnail") do %>
-			<%= gravatar_for(user, size:190) %>
+			<% if user.shop? %>
+				<%= link_to(shop_user_path(user)) do %>
+					<% if user.avatar? %>
+						<%= image_tag user.avatar_url, class: "feed-avatar" %>
+					<% else %>
+						<%= gravatar_for user, size: 30 %>
+					<% end %>
+				<% end %>
+			<% else %>
+				<%= link_to(user_path(user)) do %>
+					<% if user.avatar? %>
+						<%= image_tag user.avatar_url, class: "feed-avatar" %>
+					<% else %>
+						<%= gravatar_for user, size: 30 %>
+					<% end %>
+				<% end %>
+			<% end %>
 			<div class="caption">
 				<h5><%= user.name %></h5>
 				<!-- <p>Insert Category Tags Here</p> -->
