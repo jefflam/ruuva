@@ -5,7 +5,6 @@
 <% unless @users.empty? %>
 <ul class="thumbnails">
 	<% @users.each do |user| %>
-	<% if user.shop? %>
 	<li>	
 		<%= link_to(shop_user_path(user), class: "thumbnail") do %>
 			<% if user.avatar? %>
@@ -18,7 +17,6 @@
 				<!-- <p>Category or description</p> -->
 			</div>
 		<% end %>
-	<% end %>			
 	</li>
 	<% end %>	
 </ul>
