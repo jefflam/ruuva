@@ -34,6 +34,9 @@
 		<%= f.file_field :cover_photo %>
 	</div>
 	<% if @user.authentications.empty? %>
+		<div class="alert alert-info span6">
+			<strong>Heads up!</strong> You have to enter your passwords in the box below to proceed to successfully edit your settings. You may also utilize the fields below to change your account password by entering your new password in both the fields.
+		</div>	
 		<div class="control-group">
 			<%= f.label :password, "Change Password (Min Length: 6)" %>
 			<%= f.password_field :password %>
