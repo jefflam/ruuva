@@ -1,0 +1,9 @@
+<% if @product.errors.any? %>
+    <div class="alert warning signupwarning">
+    <ul>
+	    <% @product.errors.full_messages.each do |msg| %>
+	       <li><%= msg %></li>
+	    <% end %>
+	</ul>
+    </div>
+<% end %>

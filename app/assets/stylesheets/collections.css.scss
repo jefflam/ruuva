@@ -1,3 +1,7 @@
 // Place all the styles related to the Collections controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.collections-container-margin { margin-left:-15px; }
+
+.collections-container-margin > li { margin-left:15px; }
