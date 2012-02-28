@@ -6,6 +6,7 @@ class CollectionsController < ApplicationController
 	def like
 		@current_user = current_user
 		@collection = Collection.find(params[:id])
+		@user = User.find(params[:id])
 
 		if @current_user.flagged?(@collection, :like)
 			# User has liked it, let's UNlike it
