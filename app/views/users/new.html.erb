@@ -7,7 +7,6 @@
     <%= image_tag 'or.png' %>
 	<%= form_for(@user) do |f| %>
 		<%= render 'shared/flash_notices' %>
-		<%= render 'shared/error' %>
 		<label><%= f.label :name, "Name (Max Length: 50)" %></label>
 		<div class="input"><%= f.text_field :name %></div>
 		<label><%= f.label :email %></label>
