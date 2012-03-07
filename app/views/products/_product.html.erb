@@ -12,7 +12,7 @@
 		<a class="thumbnail">
 	<% end %>
 			<%= image_tag product.product_image_url(:product).to_s %>
-			<div class="caption">
+			<div class="caption caption-product">
 				<h5 class="collection"><%= product.name %></h5>
 				<p class="collection"><%= product.description %></p>
 				<p class="collection"><% if product.price? %>$<%= product.price %><% end %></p>

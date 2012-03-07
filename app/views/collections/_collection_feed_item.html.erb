@@ -14,7 +14,7 @@
 	</div>	
 	<%= link_to(collection_path(collection), class: "thumbnail") do %>
 		<%= image_tag collection.image_url(:thumb).to_s %>
-		<div class="caption">
+		<div class="caption caption-collection">
 			<h5 class="collection"><%= collection.name %></h5>
 			<p class="collection"><%= collection.description %></p>
 		</div>
