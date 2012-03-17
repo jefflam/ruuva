@@ -14,7 +14,7 @@
 				<% if user.avatar? %>
 					<%= image_tag user.avatar_url, class: "marketplace-avatar" %>
 				<% else %>
-					<%= gravatar_for user, size: 190 %>
+					<%= gravatar_for user, size: 72 %>
 				<% end %>
 				<div class="caption">
 					<h5><%= user.name %></h5>
