@@ -5,6 +5,8 @@
 <div class="span7 offset2 well">	
 <%= render 'shared/flash_notices' %>
 <%= form_for @user, html: { multipart: true } do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+
 	<div class="control-group">
 		<%= image_tag (@user.avatar_url), class: "avatar" if @user.avatar? %>
 		<%= f.label :avatar, "Add/Edit your profile Picture (Max Size: 2 mb)" %>

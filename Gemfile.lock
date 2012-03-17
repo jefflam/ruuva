@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/cavneb/make_flaggable.git
-  revision: 08965792714536c26210fdea1bc38315e1cce239
+  revision: 6ed39cd93f40f45367f764701c3c342760e1dd7e
   specs:
-    make_flaggable (0.0.3)
+    make_flaggable (0.0.4)
       activerecord (>= 3.0.0)
 
 GEM
@@ -205,7 +205,7 @@ DEPENDENCIES
   fog
   jquery-rails (= 2.0.0)
   mail
-  make_flaggable!
+  make_flaggable (= 0.0.4)!
   mini_magick
   omniauth-facebook
   pg

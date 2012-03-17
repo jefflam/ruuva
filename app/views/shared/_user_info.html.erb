@@ -8,7 +8,7 @@
 	</div>
 	<div class="namebio">
 		<div class="name span6"><%= @user.name %></div>
-		<div class="bio span2"><%= @user.user_bio %></div>
+		<div class="bio span6"><%= @user.user_bio %></div>
 	</div>
 	<% unless current_user?(@user) %>
 	<div class="btnbox">

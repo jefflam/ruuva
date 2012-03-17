@@ -6,7 +6,7 @@
 
 .avatar { width:128px; height:128px; }
 .cover_photo_preview { width:670px; height:200px; }
-.marketplace-avatar { width:190px; height:190px; }
+.marketplace-avatar { width:72px; height:72px; }
 .feed-avatar { width: 30px; height:30px; }
 
 /* Nav Bar Styling */
@@ -57,14 +57,15 @@
 		font-size:24px;
 		font-weight:bold;
 		margin-top:3px;
+		margin-left:0;
 	}
 
 	.user-info .bio {
 		font-family:arial;
-		width:500px;
 		float:left;
 		height:35px;
 		font-size:12px;
+		margin-left:0;		
 	}
 
 	.user-info .followers {

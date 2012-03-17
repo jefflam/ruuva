@@ -13,7 +13,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick'
-gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
+gem 'make_flaggable', '0.0.4', :git => 'git://github.com/cavneb/make_flaggable.git'
 gem 'mail'
 gem 'omniauth-facebook'
 
