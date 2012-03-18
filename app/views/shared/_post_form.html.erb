@@ -1,8 +1,17 @@
-<div class="span4 well update-feed-box">
-	<h2>Hello! What's up?</h2>
+<!-- New Post Modal -->
+<div id="modal-post" class="modal hide">
+  <div class="modal-header">
+  	<a class="close" data-dismiss="modal">x</a>
+  	<h3>New Post Update:</h3>
+  </div>
+  <div class="modal-body">
 	<%= form_for @post do |f| %>
 		<%= render 'shared/error_messages', object: f.object %>
-		<div class="update-feed"><%= f.text_area :content, class: "span4 update-feed" %></div><br>
-		<div class="update-feed-btn"><%= f.submit "Post Update!", class: "btn btn-medium" %></div>
-	<% end %>
+		<%= f.text_area :content, class: "span5 update-feed" %><br>
+		<%= f.submit "Post Update!", class: "btn btn-medium" %>
+	<% end %>	
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+  </div>
 </div>

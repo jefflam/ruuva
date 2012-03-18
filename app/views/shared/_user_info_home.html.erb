@@ -1,0 +1,31 @@
+<div class="container user-info">
+	<div class="photo">
+		<% if @user.avatar? %>
+			<%= image_tag @user.avatar_url, class: "avatar" %>
+		<% else %>
+			<%= gravatar_for @user, size: 64 %>
+		<% end %>
+	</div>
+	<div class="namebio">
+		<div class="name span4"><%= @user.name %></div>
+		<div class="bio span4"><%= @user.user_bio %></div>
+	</div>
+	<div class="right-links">
+		<ul>
+			<li><a href="<%= following_user_path(@user) %>"><strong><%= @user.following.count %></strong> Following</a></li>
+			<li><a href="<%= followers_user_path(@user) %>"><strong><%= @user.followers.count %></strong> Followers</a></li>
+		</ul>
+	</div>
+	<div class="right-links">
+		<ul>
+			<li><a href="<%= user_path(@user) %>"><strong><%= @user.posts.count %></strong> Posts</a></li>
+			<li><a href="#modal-events" data-toggle="modal" data-target="#modal-events"><strong><%= @events_attending.count %></strong> Events</a></li>		
+		</ul>
+	</div>
+	<div class="right-links">
+		<a href="#modal-post" data-toggle="modal" data-target="#modal-post" class="btn btn-small">New Post</a>
+	</div>
+</div>
+
+<%= render 'shared/event_list' %>
+<%= render 'shared/post_form' %>

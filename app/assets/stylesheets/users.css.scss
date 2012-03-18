@@ -26,9 +26,11 @@
 
 .user-info {
 	background-color:#fff;
-	height:85px;
-	border:1px solid #eee;
-	margin-bottom:10px;
+	min-height:85px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);	margin-bottom:10px;
+	margin-top:-5px;
 }
 
 	.user-info .photo {
@@ -44,28 +46,26 @@
 		}
 	.user-info .namebio {
 		width:300px;
-		height:80px;
 		float:left;
 		margin-left:10px;
 		margin-top:10px;
 	}
 
 	.user-info .name {
-		height:26px;
 		float:left;
 		font:arial;
-		font-size:24px;
-		font-weight:bold;
-		margin-top:3px;
+		font-size:20px;
+		font-weight:normal;
 		margin-left:0;
 	}
 
 	.user-info .bio {
 		font-family:arial;
 		float:left;
-		height:35px;
 		font-size:12px;
-		margin-left:0;		
+		margin-left:0;	
+		margin-top:4px;
+		line-height:1.2em;	
 	}
 
 	.user-info .followers {

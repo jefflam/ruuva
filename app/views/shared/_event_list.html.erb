@@ -1,0 +1,27 @@
+<!-- Events Modal -->
+<div id="modal-events" class="modal hide">
+  <div class="modal-header">
+  	<a class="close" data-dismiss="modal">x</a>
+  	<h3>Events you are attending:</h3>
+  </div>
+  <div class="modal-body">
+		<% if @events_attending.empty? %>
+			<p>You are currently not attending any events.</p>
+		<% else %>
+			<p>You are attending these events:</p>
+			<ol>
+				<% @events_attending.each do |e| %>
+						<% unless Event.find_by_id(e.flaggable_id).nil? %>						
+						<li>
+							Collection: <%= link_to Collection.find(Event.find(e.flaggable_id).collection_id).name, event_path(e.flaggable_id) %>
+							<br>happening on: <%= Event.find(e.flaggable_id).date_time.in_time_zone("Singapore") %>
+						</li>
+						<% end %>
+				<% end %>
+			</ol>
+		<% end %>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+  </div>
+</div>
