@@ -7,6 +7,7 @@ Ruuva::Application.routes.draw do
   end
 
   resources :collections do
+    resources :products
     member do
       get 'like'
     end

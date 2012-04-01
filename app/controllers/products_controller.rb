@@ -19,8 +19,16 @@ class ProductsController < ApplicationController
 		end
 	end
 
+	def show
+		@title = "Product"
+		collection_user_id = @collection.user_id		
+		@user = User.find(collection_user_id)		
+		@product = Product.find_by_id(params[:id])
+		@event = @collection.events
+		@event_id = Event.find_by_collection_id(params[:id])
+	end
+
 	def create
-		set_collection_id
 		@product = @collection.products.build(params[:product]) 
 		# also auto post update to wall with product name and product description
 		@post = current_user.posts
@@ -41,6 +49,26 @@ class ProductsController < ApplicationController
 		flash[:success] = "Product deleted."
 		redirect_to collection_path(session[:collection_id])
 	end
+
+	def edit
+		@title = "Edit Product Settings"
+		collection_user_id = @collection.user_id		
+		@user = User.find(collection_user_id)		
+		@product = Product.find_by_id(params[:id])
+		@event = @collection.events
+		@event_id = Event.find_by_collection_id(params[:id])		
+	end
+
+	def update
+		@product = Product.find_by_id(params[:id])
+		if @product.update_attributes(params[:product])
+			redirect_back_or root_path
+			flash[:success] = "Your have updated your product details successfully."
+		else
+			flash.now[:error] = "Sorry! We are unable to update your product details. Please check your fields and try again."
+			render 'edit'
+		end
+	end		
 
 	private
 

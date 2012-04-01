@@ -1,0 +1,28 @@
+<% if @user.shop? %>	
+	<div class="container headline shop-header">
+		<div class="container">
+			<% unless @user.cover_photo? %>
+				<% if current_user == @user %>
+				<div class="add-cover-photo">
+					<h3>Look! You have a large empty space here that looks kinda boring...why not add a cover photo to spice it up?</h3>
+					<br>
+					<%= link_to "Add a cover photo for your shop front!", edit_user_path(current_user), class: "btn btn-large" %>
+				</div>
+				<% end %>
+			<% else %>
+			<%= image_tag @user.cover_photo_url(:cover_photo_thumb).to_s %>
+			<% end %>
+		</div>
+	</div>	
+	<%= render 'shared/user_info' %>
+	<%= render 'shared/flash_notices' %>
+	<%= render 'collections/error_messages' %>
+	<%= render 'products/breadcrumb' %>
+	<%= render 'products/edit_product_form' %>
+
+<% else %>
+	<div class="container headline">
+		<p>Your shop page is current not activated. Activate it in the 'settings' page to get all the awesome goodies!</p>
+		<p><%= link_to "Activate your shop now!", edit_user_path(current_user), class: "btn btn-large" %></p>
+	</div>
+<% end %>
